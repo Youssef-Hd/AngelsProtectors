@@ -1,0 +1,220 @@
+.logo-onduty {
+  width: 200px;
+  height: 174px;
+  display: flex;
+  align-self: center;
+  padding-top: 20px;
+}
+
+.papa-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-onduty {
+  width: 350px;
+  height: 93px;
+  text-align: center;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-self: center;
+}
+
+.onduty-input {
+  box-sizing: border-box;
+  width: 294px;
+  font-family: "Josefin Sans";
+  height: 36px;
+  border-width: 0px 0px 2px 1px;
+  border-style: solid;
+  border-color: #dbca72;
+  border-radius: 8px;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+  display: flex;
+  align-self: center;
+}
+
+.description-textarea {
+  box-sizing: border-box;
+  width: 294px;
+  font-family: "Josefin Sans";
+  height: 151px;
+  border-width: 0px 0px 2px 1px;
+  border-style: solid;
+  border-color: #dbca72;
+  border-radius: 8px;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+  display: flex;
+  align-self: center;
+}
+
+.label-textarea {
+  text-align: center;
+  /* width: 95%; */
+  letter-spacing: 0px;
+  margin-left: 22px;
+  word-spacing: 0px;
+}
+
+::placeholder {
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  opacity: 0.5;
+  color: black;
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 72px;
+  letter-spacing: 0px;
+  width: 50%;
+}
+
+.label {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.label-file {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.input-file {
+  box-sizing: border-box;
+  width: 294px;
+  font-family: "Josefin Sans";
+  height: 36px;
+  border-width: 0px 0px 2px 1px;
+  border-style: solid;
+  border-color: #dbca72;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #000000;
+  padding: 8px;
+}
+
+.location-button ::click {
+  background-color: red;
+}
+
+.location-button {
+  box-sizing: border-box;
+  width: 240px;
+  height: 40px;
+  border: 0px solid #000000;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.location-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.save-map-button {
+  box-sizing: border-box;
+  width: 140px;
+  height: 40px;
+  border: 0px solid #000000;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.save-map-div {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  box-sizing: border-box;
+  width: 140px;
+  height: 40px;
+  border: 0px solid #000000;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.submit-btn-label {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.input-file-map {
+  box-sizing: border-box;
+  width: 200px;
+  font-family: "Josefin Sans";
+  height: 36px;
+  border-width: 0px 0px 2px 1px;
+  border-style: solid;
+  border-color: #dbca72;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #000000;
+  padding: 10px;
+}
+
+.label-file-map {
+  /* background-color: red; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}

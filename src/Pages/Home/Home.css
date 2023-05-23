@@ -1,0 +1,83 @@
+.Hero-image {
+  background-image: url(http://localhost:5000/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);
+  background-size: cover;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  /* align-items: flex-end; */
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.p-home {
+  width: 200px;
+  margin-left: 20px;
+  font-family: "Josefin Sans";
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  display: flex;
+  /* height: ; */
+}
+
+.h2-home {
+  text-align: center;
+  font-weight: normal;
+}
+
+.opacity-home {
+  display: flex;
+  width: 100%;
+  background-color: #dbca72;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+/* .home-sliders{
+    width: 100%;
+    
+} */
+
+/* .carousel-text{
+    text-align: center;
+    background-color: red;
+    height: 100vh;
+    display: flex;
+} */
+
+.btn-home {
+  /* box-sizing: border-box; */
+  width: 140px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin-left: 10px;
+margin-top: 2.2rem;
+}
+
+.div-p-btn {
+  /* background-color: red; */
+  display: flex;
+  height: 20vh;
+}
+
+.border-mid {
+  /* box-sizing: border-box; */
+  width: 70%;
+  /* display: flex; */
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 15%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #dbca72;
+  border-radius: 10px;
+  height: 0.5vh;
+}

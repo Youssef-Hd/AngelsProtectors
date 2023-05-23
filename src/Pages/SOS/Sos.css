@@ -1,0 +1,62 @@
+.adress-sos {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.adress-sos::show {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+
+}
+
+h2 {
+  text-align: center;
+}
+
+.li-styling {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 3rem;
+  line-height: 50px;
+}
+.papadiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-sos {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 80%;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px 2px #dbca72;
+  /* background-color: red; */
+}
+
+.down-arrow {
+  transform: rotate(100deg);
+  font-size: 20px;
+  padding-top: 40px;
+}
+
+.up-arrow {
+  transform: rotate(-90deg);
+  font-size: 25px;
+  /* text-align: center; */
+  /* padding-left: 10px; */
+
+}
+
+li {
+  list-style-type: none;
+}

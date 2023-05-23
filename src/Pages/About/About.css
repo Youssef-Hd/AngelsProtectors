@@ -1,0 +1,55 @@
+
+.About-Div {
+  display: flex;
+  flex-direction: column;
+}
+
+.Image-about {
+  width: 200px;
+  height: 174px;
+  display: flex;
+  align-self: center;
+  padding-top: 20px;
+}
+
+.p-about {
+  width: 250px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.p-protector {
+  width: 400px;
+  height: 27px;
+  font-weight: 500;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-about {
+  width: 200px;
+  height: 80px;
+  background: rgba(219, 202, 114, 0.8);
+  border: 1px solid #000000;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 20px;
+  /* text-align: center; */
+}
+
+.Link-about {
+  text-align: center;
+}
+
+.Footer-about {
+  display: flex;
+  justify-content: flex-end;
+}

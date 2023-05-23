@@ -1,0 +1,106 @@
+.navigation {
+  width: 100%;
+  height: 70px;
+  background-color: #dbca72;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  font-style: none;
+  outline-style: none;
+  text-decoration: none;
+  color: black;
+  font-size:20px ;
+  
+}
+
+
+
+.background-image-about{
+
+background-image: url('');
+
+
+
+
+}
+
+
+
+.nav-link :hover{
+  background-color: rgba(0, 0, 0, 0.075);
+  color: aliceblue;
+}
+
+#User-icon {
+  display: flex;
+  font-size: 1.7rem;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.navigation ul li {
+  list-style-type: none;
+  padding-right: 10px;
+}
+
+.hamburger {
+  z-index: 6;
+}
+.navigation pxul {
+  display: none;
+}
+
+.navigation ul.show {
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.navigation ul li {
+  list-style-type: none;
+  padding-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: fixed;
+    padding-top: 10px;
+    margin-left: 10px;
+    z-index: 6;
+    font-weight: bold;
+  }
+
+  .navigation ul {
+    display: none;
+  }
+
+  .navigation ul.show {
+    display: flex;
+    font-weight: bold;
+    width: 40vw;
+    background-color: #dbca72;
+    height: 63vh;
+    width: 35vw;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    border-radius: 10px;
+    border-color: black;
+    border: 1px solid;
+    padding-top: 15px;
+  }
+}

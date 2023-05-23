@@ -1,0 +1,98 @@
+input {
+  font-family: "Josefin Sans";
+}
+
+.Contact-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.Image-contact {
+  width: 200px;
+  height: 174px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.border-fullname {
+  width: 300px;
+  border: 1px solid #000000;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  display: flex;
+  /* text-align: center; */
+  align-self: center;
+  margin-top: 20px;
+}
+
+.border-number {
+  width: 300px;
+  border: 1px solid #000000;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  display: flex;
+  /* text-align: center; */
+  align-self: center;
+  margin-top: 4rem;
+}
+
+.border-subject {
+  width: 300px;
+  border: 1px solid #000000;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  display: flex;
+  align-self: center;
+  margin-top: 4rem;
+}
+
+.contact-email {
+  width: 300px;
+  height: 155px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  margin-top: 3rem;
+  display: flex;
+  align-self: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.submit-contact {
+  box-sizing: border-box;
+  width: 140px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
