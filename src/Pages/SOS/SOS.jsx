@@ -1,9 +1,9 @@
 import React from "react";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
-import Result from "../../components/SearchBar/Result";
 import { useState } from "react";
 import { IoArrowRedoCircleOutline } from "react-icons/io5";
+import Search from "../../components/SearchBar/Search";
 import "./Sos.css";
 
 const SOS = () => {
@@ -17,7 +17,7 @@ const SOS = () => {
   return (
     <div>
       <Nav />
-      <Result />
+      <Search />
       <div>
       <br />
         <div className="accordion">

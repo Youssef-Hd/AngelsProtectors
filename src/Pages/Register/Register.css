@@ -1,0 +1,72 @@
+.logo-register {
+  width: 200px;
+  height: 174px;
+  display: flex;
+  align-self: center;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.logo-div {
+  display: flex;
+  justify-content: center;
+}
+
+.title-register {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
+
+.input-User-register {
+  width: 80%;
+  text-align: center;
+  height: 42px;
+  border-bottom: 2px solid black;
+}
+
+.input-div-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: josefin sans;
+}
+
+.register-btn {
+  width: 238px;
+  height: 41px;
+  border: none;
+  border-radius: 4px;
+  background-color: #dbca72;
+  font-family: josefin sans;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.register-btn {
+  width: 298.12px;
+  height: 41px;
+  border: none;
+  border-radius: 4px;
+  background-color: #dbca72;
+  font-family: josefin sans;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.div-btn-register {
+  display: flex;
+  height: 18vh;
+  flex-direction: column;
+  justify-content: center;
+}

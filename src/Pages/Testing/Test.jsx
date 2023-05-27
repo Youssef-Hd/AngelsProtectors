@@ -1,58 +1,216 @@
-import React, { useState, useEffect } from "react";
+
+import { useState } from "react";
 import axios from "axios";
 
-function NgoSearch() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+const SearchBar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const handleSearch = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/ngo");
-      setData(response.data);
-      setFilteredData(response.data);
+      const response = await axios.get(`http://localhost:5000/api/ngo`);
+      const results = response.data.data;
+      
+      // Filter the results based on the searchQuery
+      const filteredResults = results.filter((ngo) => {
+        // Perform case-insensitive search on name and address
+        const nameMatch = ngo.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const addressMatch = ngo.address.toLowerCase().includes(searchQuery.toLowerCase());
+        return nameMatch || addressMatch;
+      });
+  
+      setSearchResults(filteredResults);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data);
+      } else {
+        setErrorMessage("An error occurred. Please try again.");
+      }
     }
   };
+  
 
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-    filterData(event.target.value);
-  };
-
-  const filterData = (searchTerm) => {
-    if (searchTerm.trim() === "") {
-      setFilteredData(data);
-    } else {
-      const filteredResults = data.filter((item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredData(filteredResults);
-    }
-  };
   return (
     <div>
       <input
         type="text"
-        placeholder="Search"
-        value={searchTerm}
-        onChange={handleInputChange}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search by name or location"
       />
+      <button onClick={handleSearch}>Search</button>
+
+      {errorMessage && <p>{errorMessage}</p>}
+
       <ul>
-        {filteredData.map((item) => (
-          <li key={item._id}>{item.name}</li>
+        {searchResults.map((ngo) => (
+          <li key={ngo._id}>
+            <h3>{ngo.name}</h3>
+            <p>Address: {ngo.address}</p>
+            <p>Phone Number: {ngo.phoneNumber}</p>
+          </li>
         ))}
       </ul>
     </div>
   );
-}
+};
 
-export default NgoSearch;
+export default SearchBar;
+
+
+
+
+
+// import { useState } from "react";
+// import axios from "axios";
+// import { Navigate } from "react-router-dom";
+
+// const Register = () => {
+//   const [name, setName] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [phoneNumber, setPhoneNumber] = useState("");
+//   const [errorMessage, setErrorMessage] = useState("");
+//   const [redirectToLogin, setRedirectToLogin] = useState(false);
+
+//   const handleRegister = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       const response = await axios.post(
+//         "http://localhost:5000/api/user/register",
+//         {
+//           name,
+//           email,
+//           password,
+//           phoneNumber,
+//         }
+//       );
+
+//       const user = response.data;
+//       console.log(user); // Handle the user object as needed
+
+//       setRedirectToLogin(true);
+//       // Redirect the user or perform any other actions
+//     } catch (error) {
+//       if (error.response && error.response.data) {
+//         setErrorMessage(error.response.data);
+//       } else {
+//         setErrorMessage("An error occurred. Please try again.");
+//       }
+//     }
+//   };
+//   if (redirectToLogin) {
+//     return <Navigate to="/login" replace />;
+//   }
+
+//   return (
+//     <div>
+//       <h2>Register</h2>
+//       <form onSubmit={handleRegister}>
+//         <div>
+//           <label>Name:</label>
+//           <input
+//             type="text"
+//             value={name}
+//             onChange={(e) => setName(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label>Email:</label>
+//           <input
+//             type="email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label>Password:</label>
+//           <input
+//             type="password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label>Phone Number:</label>
+//           <input
+//             type="text"
+//             value={phoneNumber}
+//             onChange={(e) => setPhoneNumber(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div>
+//           <button type="submit">Register</button>
+//         </div>
+//       </form>
+//       {errorMessage && <p>{errorMessage}</p>}
+//     </div>
+//   );
+// };
+
+// export default Register;
+
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+
+// function NgoSearch() {
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [data, setData] = useState([]);
+//   const [filteredData, setFilteredData] = useState([]);
+
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+
+//   const fetchData = async () => {
+//     try {
+//       const response = await axios.get("http://localhost:5000/api/ngo");
+//       setData(response.data);
+//       setFilteredData(response.data);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     }
+//   };
+
+//   const handleInputChange = (event) => {
+//     setSearchTerm(event.target.value);
+//     filterData(event.target.value);
+//   };
+
+//   const filterData = (searchTerm) => {
+//     if (searchTerm.trim() === "") {
+//       setFilteredData(data);
+//     } else {
+//       const filteredResults = data.filter((item) =>
+//         item.name.toLowerCase().includes(searchTerm.toLowerCase())
+//       );
+//       setFilteredData(filteredResults);
+//     }
+//   };
+//   return (
+//     <div>
+//       <input
+//         type="text"
+//         placeholder="Search"
+//         value={searchTerm}
+//         onChange={handleInputChange}
+//       />
+//       <ul>
+//         {filteredData.map((item) => (
+//           <li key={item._id}>{item.name}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default NgoSearch;
 
 // import React, { useState } from "react";
 // import "./Test.css";

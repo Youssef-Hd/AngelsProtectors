@@ -25,7 +25,7 @@ export default function Nav() {
   const headerName = () => {
     if (location.pathname == "/about") {
       setheadername("About Us");
-    } else if (location.pathname == "/home") {
+    } else if (location.pathname == "/") {
       setheadername("Home");
     } else if (location.pathname == "/onduty") {
       setheadername("On Duty");
@@ -35,6 +35,10 @@ export default function Nav() {
       setheadername("SOS");
     } else if (location.pathname == "/posts") {
       setheadername("Posts");
+    } else if (location.pathname == "/login") {
+      setheadername("Login");
+    }else if (location.pathname == "/register") {
+      setheadername("Register")
     }
   };
 
@@ -82,6 +86,13 @@ export default function Nav() {
             onClick={() => setHamburgerOpen(false)}
           >
             SOS
+          </Link>{" "}
+          <Link
+            to="/posts"
+            className="nav-link"
+            onClick={() => setHamburgerOpen(false)}
+          >
+            Posts
           </Link>
         </ul>
       </div>

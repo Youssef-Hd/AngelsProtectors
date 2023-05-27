@@ -1,0 +1,115 @@
+.image-posts {
+  width: 90%;
+  border-radius: 20px;
+  height: 40vh;
+  position: relative;
+  z-index: 1;
+}
+
+.description-posts {
+  /* padding-bottom: 20px; */
+  font-size: small;
+  line-height: 1.5;
+  text-align: center;
+  transform: translate(0, -150%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  width: 80%;
+  opacity: 0.9;
+  height: 6vh;
+  color: white;
+}
+
+
+.Posts-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.div-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* .comment-section-div {
+  width: 100%;
+} */
+
+.see-more-button {
+  z-index: 12;
+  background: none;
+  border: none;
+  color: black
+}
+
+.Comment-section-p{
+  background-color: red;
+}
+
+
+/* Add the following CSS styles to your Posts.css file */
+
+.Comment-section-p {
+  margin-bottom: 10px;
+}
+
+.Reply-section-p {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.Comment-reply-container {
+  margin-left: 20px;
+}
+
+/* Add a button style for the reply button */
+
+/* .Reply-button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+} */
+
+/* Add a style for the comment input and post button */
+
+.Comment-input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.Post-comment-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.Reply-button {
+  /* Updated styles: Highlighted in orange */
+  color: orange;
+}
+
+.Reply-input {
+  /* Updated styles: Highlighted in orange */
+  display: inline-block;
+  width: 200px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.Post-reply-button {
+  /* Updated styles: Highlighted in orange */
+  color: orange;
+}

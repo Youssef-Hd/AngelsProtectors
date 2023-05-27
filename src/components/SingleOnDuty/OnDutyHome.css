@@ -6,14 +6,14 @@
 }
 
 .caseroul-image-description {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .div-home {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-height: 25vh;
+  height: 25vh;
   align-self: center;
   align-content: center;
   text-align: center;
@@ -29,8 +29,12 @@ height: 25vh;
 /* }  */
 
 .slick-list {
-  /* display: flex;
-  flex-wrap: wrap; */
+  display: flex; 
+  /* flex-wrap: wrap; */
+  /* background-color: red;  */
+  justify-content: space-between;
+  text-align: center;
+
 }
 
 /* .swiper-container{
@@ -40,25 +44,11 @@ height: 25vh;
 
 /* CustomCarousel.css */
 
-.custom-carousel {
-  /* Add your custom styles here */
-}
 
-.carousel-wrap {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
-}
 
-.image-wrap {
-  /* flex: 0 0 25%; Adjust the percentage to control the width of each image */
-  padding: 10px;
-  /* box-sizing: border-box; */
-}
 
 .caseroul-image-style {
   /* Add your custom styles for the image */
-
   /* box-sizing: border-box; */
   width: 159px;
   border: 1px solid #000000;
@@ -67,19 +57,8 @@ height: 25vh;
 
 .caseroul-image-description {
   /* Add your custom styles for the image description */
+  /* text-align: center; */
 }
 
 /* Add more custom CSS rules as needed */
-
-.images-styling {
-  /* display: flex; */
-  /* padding: 8px; */
-  /* flex-wrap: wrap; */
-
-  /* justify-content: center; */
-  /* display: flex;
- /* width: 55px; */
-  /* flex-direction: column;  */
-  /* background-color: rebeccapurple; */
-}
 

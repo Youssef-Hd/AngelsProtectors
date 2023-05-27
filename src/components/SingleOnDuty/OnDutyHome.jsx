@@ -6,24 +6,22 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const OnDutyHome = () => {
-
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 2,
     initialSlide: 0,
-   
   };
 
-
-  const [ondutyData, setOnDutyData] = useState([]);
+  const [homeLocation, setHomeLocation] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/onduty");
-        setOnDutyData(response.data.data);
+        const response = await axios.get("http://localhost:5000/api/location");
+        setHomeLocation(response.data.data);
+        console.log(response.data.data);
       } catch (error) {
         console.error(error);
       }
@@ -34,25 +32,19 @@ const OnDutyHome = () => {
 
   return (
     <div className="div-home">
-   <Slider {...settings}>
-
-      
-        {ondutyData.map((onduty, index) => (
-          <div key={onduty._id} className="images-styling">
+      <Slider {...settings}>
+        {homeLocation.map((item, index) => (
+          <div key={item._id} className="images-styling">
             <img
               className="caseroul-image-style"
-              src={onduty.image}
-              alt={onduty.description}
+              src={item.images[0].url}
+              alt={item.description}
             />
-            <p className="caseroul-image-description">{onduty.location}</p>
+            <p className="caseroul-image-description">{item.location}</p>
           </div>
-
         ))}
-   
-      
-        </Slider>
-        </div>
-             
+      </Slider>
+    </div>
   );
 };
 
