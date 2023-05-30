@@ -4,20 +4,17 @@
   height: 50vh;
   width: 100%;
   display: flex;
-  /* align-items: flex-end; */
   background-position-x: center;
   background-position-y: center;
 }
 
 .p-home {
   width: 200px;
-  margin-left: 20px;
   font-family: "Josefin Sans";
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 550;
   font-size: 15px;
-  line-height: 15px;
-  display: flex;
-  /* height: ; */
+  line-height: 25px;
 }
 
 .h2-home {
@@ -33,51 +30,95 @@
   align-self: flex-end;
 }
 
-/* .home-sliders{
-    width: 100%;
-    
-} */
-
-/* .carousel-text{
-    text-align: center;
-    background-color: red;
-    height: 100vh;
-    display: flex;
-} */
-
 .btn-home {
-  /* box-sizing: border-box; */
   width: 140px;
   height: 40px;
-  border: 1px solid #000000;
+  border: none;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  margin-left: 10px;
-margin-top: 2.2rem;
+  margin-top: 3rem;
 }
 
 .div-p-btn {
-  /* background-color: red; */
   display: flex;
   height: 20vh;
+  justify-content: space-evenly;
 }
 
 .border-mid {
-  /* box-sizing: border-box; */
   width: 70%;
-  /* display: flex; */
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  text-align: center;
   margin-left: 15%;
-  margin-top: 0.5rem;
   margin-bottom: 1rem;
+  margin-top: 50px;
   background-color: #dbca72;
   border-radius: 10px;
   height: 0.5vh;
+  margin-top: 15px;
+}
+
+.logo-home {
+  width: 200px;
+  height: 174px;
+}
+
+.logo-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label-logo {
+  text-align: center;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.btn-onduty-home {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.sos-label {
+  width: 300px;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 550;
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.div-sos {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-sos-homepage {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
 }

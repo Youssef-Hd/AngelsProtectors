@@ -4,14 +4,26 @@ import "./OnDutyHome.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 const OnDutyHome = () => {
+
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 2,
     initialSlide: 0,
+    centerMode: true, // Enable center modeTTT
+    centerPadding: "0px", // Adjust the padding to center the images
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
 
   const [homeLocation, setHomeLocation] = useState([]);
@@ -34,13 +46,15 @@ const OnDutyHome = () => {
     <div className="div-home">
       <Slider {...settings}>
         {homeLocation.map((item, index) => (
-          <div key={item._id} className="images-styling">
-            <img
-              className="caseroul-image-style"
-              src={item.images[0].url}
-              alt={item.description}
-            />
-            <p className="caseroul-image-description">{item.location}</p>
+          <div key={item._id} className="div-images-styling">
+            <Link to="/posts">
+              <img
+                className="caseroul-image-style"
+                src={item.images[0].url}
+                alt={item.description}
+              />
+            <span className="span-location"> {item.location}</span>
+            </Link>
           </div>
         ))}
       </Slider>

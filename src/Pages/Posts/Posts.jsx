@@ -88,39 +88,36 @@ const Posts = () => {
       console.log("Error posting comment:", error);
     }
   };
-  const handleReplyChange = (event, commentId) => {
+  const handleReplyChange = (event) => {
     setReplyText(event.target.value);
-    setShowReplyInput((prevState) => ({
-      // Updated line: setShowReplyInput
-      ...prevState,
-      [commentId]: true,
-    }));
   };
 
   const handleReplySubmit = async (commentId) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/reply/postreply", {
-        commentId,
-        content: replyText,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/reply/postreply",
+        {
+          commentId,
+          content: replyText,
+        }
+      );
       console.log("Reply posted:", response.data);
       allPosts();
       setReplyText("");
-      setShowReplyInput((prevState) => ({
-        // Updated line: setShowReplyInput
-        ...prevState,
-        [commentId]: false,
-      }));
-    } catch (error) {
+      }
+    catch (error) {
       console.log("Error posting reply:", error);
     }
   };
+
   return (
     <div>
       <Nav />
       <div className="Posts-div">
         {posts.map((post) => (
           <div className="div-2" key={post._id}>
+        
+          <h1>{post.user.name}</h1>
             <img
               className="image-posts"
               src={post.images[0].url}
@@ -148,19 +145,18 @@ const Posts = () => {
                     ))}
                   </div>
                   <div>
-                  <input
-                          type="text"
-                          className="Reply-input" // Updated line: Reply-input
-                          value={replyText}
-                          onChange={(event) =>
-                            handleReplyChange(event, comment._id)
-                          }
-                        />
-              
+                    <input
+                      type="text"
+                      className="Reply-input" // Updated line: Reply-input
+                      value={replyText}
+                      onChange={(event) =>
+                        handleReplyChange(event, comment._id)
+                      }
+                    />
                     <button
                       className="Post-reply-button" // Updated line:
-                      Post-reply-button onClick=
-                      {() => handleReplySubmit(comment._id)}>
+                      onClick={() => handleReplySubmit(comment._id)}
+                    >
                       Reply
                     </button>
                   </div>

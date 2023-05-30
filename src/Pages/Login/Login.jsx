@@ -28,6 +28,7 @@ const Login = () => {
       if (response.ok) {
         const user = await response.json();
         console.log(user);
+        sessionStorage.setItem('id', user._id);
 
         setRedirectToHome(true);
 

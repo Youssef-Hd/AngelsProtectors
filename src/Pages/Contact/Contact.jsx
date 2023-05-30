@@ -11,8 +11,10 @@ const Contact = () => {
   const [emailus, setEmailus] = useState("");
   const [subject, setSubject] = useState("");
   const [number, setNumber] = useState(null);
+  const storedId = sessionStorage.getItem('id');
 
   const handleEvent = async (e) => {
+    if(storedId){
     e.preventDefault();
     var data = { fullName, emailus, number };
     await emailjs.send(
@@ -26,8 +28,11 @@ const Contact = () => {
     setEmailus("");
     setNumber("");
     setSubject("")
-    
+  }else{
+    alert("please sign in")
+  }
   };
+
 
   return (
     <div className="Contact-div">

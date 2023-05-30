@@ -53,7 +53,7 @@ export default function Nav() {
 
         <ul className={hamburgerOpen ? "show" : "hide"}>
           <Link
-            to="/home"
+            to="/"
             className="nav-link"
             onClick={() => setHamburgerOpen(false)}
           >

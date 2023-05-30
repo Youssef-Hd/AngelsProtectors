@@ -26,8 +26,8 @@ const About = () => {
       <button className="btn-about">On Duty!</button>
       </Link>
       <div className="Footer-about">
-        <Footer />
       </div>
+        <Footer />
     </div>
   );
 };

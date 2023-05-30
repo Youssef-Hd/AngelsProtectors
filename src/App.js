@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./Pages/Home/Home";
-import OnDuty from "./Pages/OnDuty/OnDuty";
+import LocationPosts from "./Pages/OnDuty/LocationPosts";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 import SOS from "./Pages/SOS/SOS";
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/onduty" element={<OnDuty />} />
+        <Route path="/onduty" element={<LocationPosts />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sos" element={<SOS />} />
