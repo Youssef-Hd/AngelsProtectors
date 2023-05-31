@@ -1,6 +1,5 @@
 import Footer from "../../components/Footer/Footer";
 import Nav from "../../components/Nav/Nav";
-// import logo from '../../../public/logo.png'
 import logo from "../../assets/logo.png";
 import "./About.css";
 import { Link } from "react-router-dom";
@@ -10,24 +9,27 @@ const About = () => {
     <div className="About-Div">
       <div>
         <Nav />
+        <img
+          className="Heroimage-aboutpage"
+          src="https://media.gettyimages.com/id/1221625331/photo/superhero-dog-and-his-boy.jpg?s=612x612&w=0&k=20&c=B6UHRGhhg2kk3v6sBYp2WKkLqnDh8776PmgtShz1JMk="
+          alt="imghero"
+        />
       </div>
       <img className="Image-about" src={logo} />
       <p className="p-about">
         This platform was created for people to contribute helping stray dogs
-        who are in need of rescuing all across Lebanon region. The application
-        aim is for people to provide information and post it on here for other
-        people or for the non profit organization to jump in and help those kind
-        souls who are in need{" "}
+        who are in need of rescuing all across Lebanon region.
+        <br /> The application aim is for people to provide information and post
+        it on here for other people or for the non profit organization to jump
+        in and help those kind souls who are in need{" "}
       </p>
-      <p className="p-protector">
-        Become A Protector Now!
-      </p>
-      <Link to='/onduty' className="Link-about">
-      <button className="btn-about">On Duty!</button>
-      </Link>
       <div className="Footer-about">
-      </div>
+        <p className="p-protector">Become A Protector Now!</p>
+        <Link to="/onduty" className="Link-about">
+          <button className="btn-about">On Duty!</button>
+        </Link>
         <Footer />
+      </div>
     </div>
   );
 };

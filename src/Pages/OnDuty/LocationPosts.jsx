@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import "./LocationPosts.css";
 
 const containerStyle = {
-  width: "400px",
+  width: "600px",
   height: "400px",
 };
 
@@ -63,7 +63,7 @@ const LocationPosts = () => {
       formData.append("photo", mapImage);
 
       const response = await axios.post(
-        "http://localhost:5000/api/mapImage", // Replace with your backend endpoint for uploading map image
+        "https://angelsprotectorss.onrender.com/api/mapImage", // Replace with your backend endpoint for uploading map image
         formData,
         {
           headers: {
@@ -83,69 +83,6 @@ const LocationPosts = () => {
   };
   const storedId = sessionStorage.getItem("id");
 
-  // const handleLocationSubmit = async () => {
-  //   console.log("llll ",selectedFiles.images)
-  //   if (storedId) {
-  //     try {
-  //       var images = [];
-
-  //       if (selectedFiles && selectedFiles.images.length > 0) {
-
-  //         // for (let i = 0; i < selectedFiles.length; i++) {
-
-  //           const form_Data = new FormData();
-
-  //           console.log("gjh ",Array.from(selectedFiles.images))
-
-  //           // form_Data.append("images", selectedFiles.images);
-  //           form_Data.append("mapImage", "6474459745fa60d9e0863bcf");
-  //           form_Data.append("location", "Alay");
-  //           form_Data.append("description", "desc");
-  //           form_Data.append("user", "646f60b1ee733833b8628f6c");
-  //           form_Data.append("images", selectedFiles.images);
-
-  //           const response = await axios.post(
-  //             "http://localhost:5000/api/location",
-  //             form_Data,
-  //             {
-  //               headers: {
-  //                 "Content-Type": "multipart/form-data",
-  //               },
-  //             }
-  //           );
-
-  //           console.log("formdataaa", response);
-  //           // const images = response.data.images;
-  //           // images.push({
-  //           //   public_id: response.data.public_id,
-  //           //   url: response.data.secure_url,
-  //           // });
-  //         }
-
-  //       const mapImageId = await uploadMapImage(mapImage);
-  //       const locationData = {
-  //         description,
-  //         location,
-  //         latitude,
-  //         longitude,
-  //         images: images,
-  //         mapImage: mapImageId,
-  //         user: storedId,
-  //       };
-
-  // const response = await axios.post(
-  //   "http://localhost:5000/api/location",
-  //   locationData
-  // );
-
-  // console.log(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   } else {
-  //     alert("please sign in ");
-  //   }
-  // };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -166,7 +103,7 @@ const LocationPosts = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/location",
+        "https://angelsprotectorss.onrender.com/api/location",
         formData,
         {
           headers: {
@@ -285,6 +222,7 @@ const LocationPosts = () => {
           <LoadScript googleMapsApiKey="AIzaSyAFMeBhortuziszMT3prAJ4NMd9SaG07vw">
             <br />
             {showLocation && (
+              <div className="map-position">
               <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={{
@@ -303,6 +241,7 @@ const LocationPosts = () => {
                   }}
                 />
               </GoogleMap>
+              </div>
             )}
           </LoadScript>
 

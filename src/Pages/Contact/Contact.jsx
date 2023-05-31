@@ -63,7 +63,8 @@ const Contact = () => {
         value={subject}
         className="border-subject"
       />
-      <input
+      <textarea
+      
       placeholder="Email us"
         onChange={(e) => {
           setEmailus(e.target.value);

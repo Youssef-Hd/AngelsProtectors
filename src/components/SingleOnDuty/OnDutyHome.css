@@ -1,13 +1,11 @@
-
 a {
   color: black /* set your desired color */; /* Set the color for both unvisited and visited links */
   text-decoration: none; /* Remove underline on all links */
   /* text-align: center; */
 }
 
-/* a:focus */
 a:hover {
-  color: /* set your desired color */ ; /* Set the color for focused and hovered links */
+   /* set your desired color */ /* Set the color for focused and hovered links */
   /* Additional styles if needed */
 }
 
@@ -20,23 +18,21 @@ a:hover {
 
 .div-images-styling {
   width: 150px !important;
-
 }
 
 .div-home {
   margin-top: 20px;
   display: flex;
-  /* padding: 50px; */
   flex-direction: column;
-  height: 30vh;
+  /* height: 30vh; */
   justify-content: center;
+  margin-top: 30px;
 }
 
 .caseroul-image-style {
   width: 150px;
   height: 15vh;
   border-radius: 12px;
-
 }
 
 .slick-slide {

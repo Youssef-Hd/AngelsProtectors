@@ -1,115 +1,282 @@
-.image-posts {
-  width: 90%;
-  border-radius: 20px;
-  height: 40vh;
-  position: relative;
-  z-index: 1;
-}
-
-.description-posts {
-  /* padding-bottom: 20px; */
-  font-size: small;
-  line-height: 1.5;
+.h1-angels{
+  color: #dbca72;
   text-align: center;
-  transform: translate(0, -150%);
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  width: 80%;
-  opacity: 0.9;
-  height: 6vh;
-  color: white;
-}
-
-
-.Posts-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 30px;
 }
 
 .div-2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 2rem;
   position: relative;
   margin-bottom: 2rem;
 }
+.label-posts {
+  /* margin-left: 30px; */
+  text-align: center;
+  padding: 10px;
+}
+.image-posts {
+  width: 90%;
+  border-radius: 20px;
+  height: 40vh;
+  /* position: relative; */
+  z-index: 1;
+  display: flex;
+  align-self: center;
+}
 
-/* .comment-section-div {
-  width: 100%;
-} */
+.description-posts {
+  font-size: small;
+  line-height: 1.5;
+  text-align: center;
+  transform: translate(0, -190%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  width: 80%;
+  opacity: 0.9;
+  height: 3vh;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  color: white;
+  padding: 10px;
+}
+
+.Posts-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f0f1f3;
+}
 
 .see-more-button {
   z-index: 12;
   background: none;
   border: none;
-  color: black
+  color: black;
 }
 
-.Comment-section-p{
-  background-color: red;
+.Comment-reply-container {
+  display: flex;
+  flex-direction: column;
 }
-
-
-/* Add the following CSS styles to your Posts.css file */
 
 .Comment-section-p {
-  margin-bottom: 10px;
+  min-height: 2.5rem;
+  height: 10vh;
+  border: 1px solid #dbca72;
+  border-radius: 8px;
+  /* display: flex; */
+  /* align-items: center; */
+  justify-content: center;
+  /* align-self: center; */
+  /* justify-content: center; */
+  width: 71vw;
+  padding: 10px;
+  text-align: left;
+}
+
+.comment-user-name {
+  position: absolute;
+  font-size: small;
+  margin-left: 28px;
+  display: flex;
+  align-items: center;
 }
 
 .Reply-section-p {
   margin-left: 20px;
   margin-bottom: 5px;
+  border: 1px solid #dbca72;
+  border-radius: 8px;
+  /* height: 20px; */
+  width: 74%;
+  padding: 10px;
+  display: flex;
+  align-self: center;
+  padding: 10px;
 }
 
 .Comment-reply-container {
   margin-left: 20px;
+  height: auto;
 }
 
-/* Add a button style for the reply button */
+.comment-content-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f1f3;
+}
 
-/* .Reply-button {
-  background-color: #f0f0f0;
-  color: #333;
-  border: none;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-} */
-
-/* Add a style for the comment input and post button */
+.date-stamp {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 40px;
+  margin-top: 10px;
+  font-size: x-small;
+}
 
 .Comment-input {
-  width: 100%;
-  margin-bottom: 10px;
+  width: 315px;
+  height: 155px;
+  border: 1px solid #dbca72;
+  border-radius: 8px;
+  margin-top: 3rem;
+  display: flex;
+  align-self: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #f0f1f3;
+  line-height: 20px;
 }
 
 .Post-comment-button {
-  background-color: #333;
-  color: #fff;
+  box-sizing: border-box;
+  width: 140px;
+  height: 40px;
   border: none;
-  padding: 5px 10px;
-  font-size: 14px;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  align-items: center;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
+.div-comment-posts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 33px;
+}
 
 .Reply-button {
   /* Updated styles: Highlighted in orange */
   color: orange;
 }
 
+textarea input:focus{
+  border: none;
+}
+
 .Reply-input {
-  /* Updated styles: Highlighted in orange */
-  display: inline-block;
-  width: 200px;
-  margin-right: 10px;
+  width: 82%;
   padding: 5px;
+  border-radius: 8px;
+  height: 2vh;
+  border: 1px solid #dbca72;
+  display: flex;
+  align-self: center;
+  height: 5vh;
+  background-color: #f0f1f3;;
+  justify-content: flex-start;
+
+}
+.comment-name-div-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-post-btn {
+  display: flex;
+  flex-direction: column;
 }
 
 .Post-reply-button {
-  /* Updated styles: Highlighted in orange */
-  color: orange;
+  width: 40px;
+  height: 25px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(219, 202, 114, 0.8);
+  margin-top: 6px;
+  margin-right: 32px;
+  display: flex;
+  justify-content: center;
+  align-self: end;
+
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+
+.Show-reply-button {
+  display: flex;
+  /* justify-content: flex-start; */
+  background: transparent;
+  font-weight: bolder;
+  color: #dbca72;
+  border: none;
+  align-self: end;
+  margin-right: 30px;
+
+  /* align-items: end; */
+  /* align-self: c */
+  /* align-content: center; */
+}
+
+.comments-word {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  /* padding: 2; */
+}
+
+.icon-arrow-down{
+  padding: 2px;
+  /* background-color: white; */
+  color: #dbca72;
+}
+
+
+.hide-reply-button {
+  /* position: absolute; */
+
+  display: flex;
+  align-self: center;
+
+}
+
+
+.show-comments {
+  display: block;
+}
+
+.hide-comments {
+  display: none;
+}
+
+.icon-profile{
+ text-align: center;
+ /* padding-top: 20px; */
+ color: #dbca72;
+
+}
+
+.label-posts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.icon-profile-comment{
+
+color: #dbca72;
+
 }

@@ -35,7 +35,7 @@ const CommentSection = () => {
 
   const createReply = async (commentId) => {
     try {
-      const response = await axios.post(`/api/comments/${commentId}/replies`, {
+      const response = await axios.post(`https://angelsprotectorss.onrender.com/api/comments/${commentId}/replies`, {
         content: newReply,
       });
       const updatedComments = comments.map((comment) => {

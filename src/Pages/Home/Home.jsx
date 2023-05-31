@@ -6,6 +6,8 @@ import Footer from "../../components/Footer/Footer";
 import Nav from "../../components/Nav/Nav";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelopesBulk } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   useEffect(() => {
@@ -16,7 +18,7 @@ const Home = () => {
 
   const getHome = async () => {
     const response = await axios.get(
-      `http://localhost:5000/api/page/getPage/645f54fbdbe2f957c26726f6`
+      `https://angelsprotectorss.onrender.com/api/page/getPage/645f54fbdbe2f957c26726f6`
     );
 
     setHomeImage(response.data.data);
@@ -33,7 +35,7 @@ const Home = () => {
       <div>
         <OnDutyHome />
       </div>
-      <div className="border-mid"></div>
+      {/* <div className="border-mid"></div> */}
       <div className="div-p-btn">
         <p className="p-home">
           This platform was created for people to contribute helping stray dogs
@@ -44,8 +46,8 @@ const Home = () => {
         </Link>
       </div>
       <div className="border-mid"></div>
+      <div className="logo-div-home">
       <p className="label-logo">Visit Our OnDuty Page</p>
-      <div className="logo-div">
         <img className="logo-home" src={logo} alt="logo" />
         <br />
         <Link to="/onduty">
@@ -57,18 +59,25 @@ const Home = () => {
       <div className="border-mid"></div>
       <div className="div-sos">
         <label className="sos-label">
-          Looking for Somewhere To Adopt Or Directly Report A Case? <br/> Check Out
-          Our SOS Page Now!
+          Looking for Somewhere To Adopt Or Directly Report A Case? <br /> Check
+          Out Our SOS Page Now!
         </label>
-        <Link to='/sos' >
+        <Link to="/sos">
           <button className="btn-sos-homepage">SOS</button>
         </Link>
       </div>
-      <div>
-      <Link>
-        <h2>For Further Info Contact Us!</h2>
+      <div className="border-mid-"></div>
+
+      <div className="contact-div-icon-home">
+        <Link className="link-home-contact" to="/contact">
+          <span className="span-home-contact"> Contact Us!</span>
+          <FontAwesomeIcon className="icon-home-email" icon={faEnvelopesBulk} size="2xl" />
         </Link>
       </div>
+      <div className="border-mid-last"></div>
+
+      <br />
+      <br />
       <Footer />
     </div>
   );

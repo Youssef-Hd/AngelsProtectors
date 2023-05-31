@@ -7,7 +7,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:5000/api/onduty");
+//         const response = await axios.get("https://angelsprotectorss.onrender.com/api/onduty");
 //         setOnDutyData(response.data.data);
 //       } catch (error) {
 //         console.error(error);

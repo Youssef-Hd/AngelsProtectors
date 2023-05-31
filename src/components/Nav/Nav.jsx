@@ -37,8 +37,8 @@ export default function Nav() {
       setheadername("Posts");
     } else if (location.pathname == "/login") {
       setheadername("Login");
-    }else if (location.pathname == "/register") {
-      setheadername("Register")
+    } else if (location.pathname == "/register") {
+      setheadername("Register");
     }
   };
 
@@ -49,7 +49,9 @@ export default function Nav() {
           <Hamburger isOpen={hamburgerOpen} />
         </div>
         <h1 className="H1-Header">{headername}</h1>
-        <FaUserAlt id="User-icon" />
+        <Link to='/login'>
+          <FaUserAlt id="User-icon" />
+        </Link>
 
         <ul className={hamburgerOpen ? "show" : "hide"}>
           <Link
@@ -96,6 +98,7 @@ export default function Nav() {
           </Link>
         </ul>
       </div>
+      
     </div>
   );
 }

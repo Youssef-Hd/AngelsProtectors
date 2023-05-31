@@ -212,9 +212,35 @@
   padding: 10px;
 }
 
+.input-file-map ::input{
+  background-color: blue;
+
+}
+
+input#file-upload-button{
+  background-color: red;
+  color: red;
+}
+
+
+
 .label-file-map {
   /* background-color: red; */
   text-align: center;
   display: flex;
   justify-content: center;
+}
+
+
+.contact-formmm{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-position{
+  width: 100%;
+   display: flex;
+   justify-content: center;
 }

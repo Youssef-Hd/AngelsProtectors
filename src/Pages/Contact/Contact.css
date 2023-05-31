@@ -73,21 +73,20 @@ input {
   font-weight: 500;
   font-size: 20px;
   line-height: 20px;
-  text-align: center;
 }
 
 .submit-contact {
   box-sizing: border-box;
   width: 140px;
   height: 40px;
-  border: 1px solid #000000;
+  border: none;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-self: center;
-  
+
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
@@ -96,3 +95,4 @@ input {
   align-items: center;
   margin-bottom: 20px;
 }
+

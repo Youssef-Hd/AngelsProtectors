@@ -20,7 +20,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/user/register",
+        "https://angelsprotectorss.onrender.com/api/user/register",
         {
           name,
           email,

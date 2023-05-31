@@ -21,7 +21,7 @@ const SOS = () => {
       <div>
       <br />
         <div className="accordion">
-          <h2>List Of All The Available NGOS</h2>
+          <h1 className="h1-sos">List Of The Available NGO'S</h1>
           <br />
           {Sos.map((item, i) => (
             <div className="papadiv">

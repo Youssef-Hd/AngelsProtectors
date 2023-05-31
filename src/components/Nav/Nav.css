@@ -89,18 +89,17 @@ background-image: url('');
 
   .navigation ul.show {
     display: flex;
-    font-weight: bold;
     width: 40vw;
     background-color: #dbca72;
     height: 63vh;
-    width: 35vw;
     position: fixed;
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
     border-radius: 10px;
-    border-color: black;
-    border: 1px solid;
+    border-color: none;
+    border: none;
     padding-top: 15px;
+    z-index: 5;
   }
 }

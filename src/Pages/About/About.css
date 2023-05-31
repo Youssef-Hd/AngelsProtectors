@@ -1,7 +1,7 @@
-
 .About-Div {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .Image-about {
@@ -11,38 +11,37 @@
   align-self: center;
   padding-top: 20px;
 }
-
+.Heroimage-aboutpage {
+  width: 100%;
+}
 .p-about {
-  width: 250px;
+  width: 400px;
   font-weight: 500;
   font-size: 15px;
-  line-height: 15px;
+  line-height: 20px;
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: end;
   align-self: center;
 }
 
 .p-protector {
-  width: 400px;
   height: 27px;
   font-weight: 500;
   font-size: 20px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .btn-about {
   width: 200px;
   height: 80px;
   background: rgba(219, 202, 114, 0.8);
-  border: 1px solid #000000;
+  border: none;
   border-radius: 20px;
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 20px;
-  /* text-align: center; */
 }
 
 .Link-about {
@@ -50,6 +49,8 @@
 }
 
 .Footer-about {
+  height: 50vh;
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
 }
