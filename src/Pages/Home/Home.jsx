@@ -33,46 +33,51 @@ const Home = () => {
           <h2 className="h2-home">Recent Posts</h2>
         </div>
       </div>
-      <div>
-        <OnDutyHome />
-      </div>
-      {/* <div className="border-mid"></div> */}
-      <div className="div-p-btn">
-        <p className="p-home">
-          This platform was created for people to contribute helping stray dogs
-          who are in need of rescuing all across Lebanon region.
-        </p>
-        <Link to="/about">
-          <button className="btn-home">About Us</button>
-        </Link>
-      </div>
-      <div className="border-mid"></div>
-      <div className="logo-div-home">
-      <p className="label-logo">Visit Our OnDuty Page</p>
-        <img className="logo-home" src={logo} alt="logo" />
+      <div class="content">
+        <div>
+          <OnDutyHome />
+        </div>
+        <div className="div-p-btn">
+          <p className="p-home">
+            This platform was created for people to contribute helping stray
+            dogs who are in need of rescuing all across Lebanon region.
+          </p>
+          <Link to="/about">
+            <button className="btn-home">About Us</button>
+          </Link>
+        </div>
+        <div className="border-mid"></div>
+        <div className="logo-div-home">
+          <p className="label-logo">Visit Our OnDuty Page</p>
+          <img className="logo-home" src={logo} alt="logo" />
+          <br />
+          <Link to="/onduty">
+            <button className="btn-onduty-home">OnDuty</button>
+          </Link>
+        </div>
         <br />
-        <Link to="/onduty">
-          <button className="btn-onduty-home">OnDuty</button>
-        </Link>
-      </div>
-      <br />
 
-      <div className="border-mid"></div>
-      <div className="div-sos">
-        <label className="sos-label">
-          Looking for Somewhere To Adopt Or Directly Report A Case? <br /> Check
-          Out Our SOS Page Now!
-        </label>
-        <Link to="/sos">
-          <button className="btn-sos-homepage">SOS</button>
-        </Link>
+        <div className="border-mid"></div>
+        <div className="div-sos">
+          <label className="sos-label">
+            Looking for Somewhere To Adopt Or Directly Report A Case? <br />{" "}
+            Check Out Our SOS Page Now!
+          </label>
+          <Link to="/sos">
+            <button className="btn-sos-homepage">SOS</button>
+          </Link>
+        </div>
       </div>
       <div className="border-mid-"></div>
 
       <div className="contact-div-icon-home">
         <Link className="link-home-contact" to="/contact">
           <span className="span-home-contact"> Contact Us!</span>
-          <FontAwesomeIcon className="icon-home-email" icon={faEnvelopesBulk} size="2xl" />
+          <FontAwesomeIcon
+            className="icon-home-email"
+            icon={faEnvelopesBulk}
+            size="2xl"
+          />
         </Link>
       </div>
       <div className="border-mid-last"></div>

@@ -18,7 +18,7 @@ const OnDutyHome = () => {
     centerPadding: "0px", // Adjust the padding to center the images
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 540,
         settings: {
           slidesToShow: 2,
         },
