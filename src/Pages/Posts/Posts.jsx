@@ -158,24 +158,26 @@ const Posts = () => {
               <CgProfile className="icon-profile" size={25} />
               {post.user.name}
             </label>
-            <img
-              className="image-posts"
-              src={post.images[0].url}
-              alt={post.image}
-            />
-            <span className="date-stamp">
-              Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
-            </span>
-            <p className="description-posts">
-              {showFullDescription
-                ? post.description
-                : truncateDescription(post.description, 10)}
-              {post.description.split(" ").length > 10 && (
-                <button className="see-more-button" onClick={toggleDescription}>
-                  {showFullDescription ? "See Less" : "See More"}
-                </button>
-              )}
-            </p>
+            <div className="image-wrapper">
+              <img
+                className="image-posts"
+                src={post.images[0].url}
+                alt={post.image}
+              />
+              <div className="description-posts">
+                {showFullDescription
+                  ? post.description
+                  : truncateDescription(post.description, 10)}
+                {post.description.split(" ").length > 10 && (
+                  <button
+                    className="see-more-button"
+                    onClick={toggleDescription}
+                  >
+                    {showFullDescription ? "See Less" : "See More"}
+                  </button>
+                )}
+              </div>
+            </div>
             {post.comments.length > 0 && (
               <h3
                 className="comments-word"
