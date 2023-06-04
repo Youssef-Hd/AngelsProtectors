@@ -86,9 +86,6 @@ Link{
   padding-right: 10px;
 }
 
-.hamburger {
-  z-index: 6;
-}
 .navigation pxul {
   display: none;
 }

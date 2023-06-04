@@ -153,7 +153,7 @@ const Posts = () => {
       <div className="Posts-div">
         <h1 className="h1-angels">Angels Protector</h1>
         {posts.map((post) => (
-          <div className="div-2" key={post._id}>
+          <div className="div-2 content" key={post._id}>
             <label className="label-posts">
               <CgProfile className="icon-profile" size={25} />
               {post.user.name}
