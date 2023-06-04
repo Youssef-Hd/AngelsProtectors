@@ -43,7 +43,7 @@ export default function Nav() {
   };
 
   return (
-    <div>
+    <div className="papa-nav">
       <div className="navigation">
         <div className="hamburger" onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen} />

@@ -4,6 +4,13 @@
   height: 100vh;
 }
 
+.papa-nav{
+  display: flex;
+  /* max-width: 1200px; */
+  /* width: 1200px; */
+}
+
+
 .Image-about {
   width: 200px;
   height: 174px;
@@ -12,7 +19,12 @@
   padding-top: 20px;
 }
 .Heroimage-aboutpage {
+  /* max-width: 100%; */
   width: 100%;
+  height: 90vh; 
+  display: flex;
+  justify-content: center;
+  /* max-width: 500px; */
 }
 .p-about {
   width: 320px;

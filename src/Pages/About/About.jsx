@@ -11,7 +11,9 @@ const About = () => {
         <Nav />
         <img
           className="Heroimage-aboutpage"
-          src="https://media.gettyimages.com/id/1221625331/photo/superhero-dog-and-his-boy.jpg?s=612x612&w=0&k=20&c=B6UHRGhhg2kk3v6sBYp2WKkLqnDh8776PmgtShz1JMk="
+          src="https://a-static.besthdwallpaper.com/five-short-coated-white-and-brown-puppies-wallpaper-1600x900-84107_47.jpg"
+          // src="https://media.istockphoto.com/id/1161941988/photo/super-hero-dog.jpg?s=612x612&w=0&k=20&c=9TNGD8OyFF-L8UD4PmTC-KgKewIrki8NVGtV-9XX-ho="
+          // src="https://media.gettyimages.com/id/1221625331/photo/superhero-dog-and-his-boy.jpg?s=612x612&w=0&k=20&c=B6UHRGhhg2kk3v6sBYp2WKkLqnDh8776PmgtShz1JMk="
           alt="imghero"
         />
       </div>
@@ -30,6 +32,7 @@ const About = () => {
         </Link>
         <Footer />
       </div>
+     
     </div>
   );
 };

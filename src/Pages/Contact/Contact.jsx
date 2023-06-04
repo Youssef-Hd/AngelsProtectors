@@ -75,7 +75,9 @@ const Contact = () => {
       <button onClick={handleEvent} className="submit-contact">
         Submit
       </button>
+      <div className="footer-contact">
       <Footer />
+      </div>
     </div>
   );
 };

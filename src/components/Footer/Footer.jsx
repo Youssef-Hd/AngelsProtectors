@@ -1,11 +1,9 @@
 import React from "react";
 import "./Footer.css";
-import { useState, useEffect } from "react";
 import tiny from '../../assets/tiny-logo.png'
 
 
 const Footer = () => {
-const [footer, setFooter] = useState( )
 
 
 

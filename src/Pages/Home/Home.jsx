@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Home.css";
@@ -9,6 +8,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopesBulk } from "@fortawesome/free-solid-svg-icons";
+import { BeatLoader } from "react-spinners";
 
 const Home = () => {
   useEffect(() => {
@@ -16,6 +16,7 @@ const Home = () => {
   }, []);
 
   const [homeImage, setHomeImage] = useState("");
+  const [loading, setLoading] = useState(true); // Add loading state
 
   const getHome = async () => {
     const response = await axios.get(
@@ -23,18 +24,31 @@ const Home = () => {
     );
 
     setHomeImage(response.data.data);
+    setLoading(false);
   };
   return (
     <div className="Daddy-div">
-      <Nav />
+      {loading ? ( // Render the BeatLoader while loading is true
+        <BeatLoader color="#123abc" loading={true} />
+      ) : (
+        <Nav />
+      )}
+    
 
+    
       <div className="Hero-image">
+      
         <div className="opacity-home">
           <h2 className="h2-home">Recent Posts</h2>
         </div>
+      
       </div>
       <div>
+      {loading ? ( // Render the BeatLoader while loading is true
+        <BeatLoader color="#123abc" loading={true} />
+      ) : (
         <OnDutyHome />
+      )}
       </div>
       {/* <div className="border-mid"></div> */}
       <div className="div-p-btn">
@@ -48,7 +62,7 @@ const Home = () => {
       </div>
       <div className="border-mid"></div>
       <div className="logo-div-home">
-      <p className="label-logo">Visit Our OnDuty Page</p>
+        <p className="label-logo">Visit Our OnDuty Page</p>
         <img className="logo-home" src={logo} alt="logo" />
         <br />
         <Link to="/onduty">
@@ -72,14 +86,22 @@ const Home = () => {
       <div className="contact-div-icon-home">
         <Link className="link-home-contact" to="/contact">
           <span className="span-home-contact"> Contact Us!</span>
-          <FontAwesomeIcon className="icon-home-email" icon={faEnvelopesBulk} size="2xl" />
+          <FontAwesomeIcon
+            className="icon-home-email"
+            icon={faEnvelopesBulk}
+            size="2xl"
+          />
         </Link>
       </div>
       <div className="border-mid-last"></div>
 
       <br />
       <br />
-      <Footer />
+      {loading ? ( // Render the BeatLoader while loading is true
+        <BeatLoader color="#123abc" loading={true} />
+      ) : (
+        <Footer />
+      )}
     </div>
   );
 };
