@@ -9,6 +9,11 @@
   background-position-y: top;
 }
 
+.content {
+  max-width: 1000px;
+  margin: auto;
+}
+
 .p-home {
   width: 40rem;
   font-family: "Josefin Sans";

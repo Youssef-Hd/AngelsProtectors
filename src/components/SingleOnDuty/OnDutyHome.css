@@ -9,6 +9,14 @@ a:hover {
   /* Additional styles if needed */
 }
 
+.div-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px auto;
+  max-width: 800px;
+}
+
 .span-location {
   display: block;
   padding: 10px;
@@ -20,19 +28,11 @@ a:hover {
   width: 250px !important;
 }
 
-.div-home {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  /* height: 30vh; */
-  justify-content: center;
-  margin-top: 30px;
-}
-
 .caseroul-image-style {
-  width: 250px;
+  width: 200px;
   height: 15vh;
   border-radius: 12px;
+  object-fit: cover;
 }
 
 .slick-slide {

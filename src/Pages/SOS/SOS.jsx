@@ -17,9 +17,10 @@ const SOS = () => {
   return (
     <div>
       <Nav />
-      <Search />
-      <div>
-      <br />
+      <div className="content">
+        <Search />
+
+        <br />
         <div className="accordion">
           <h2 className="h1-sos">List Of Ngo's</h2>
           <br />
@@ -32,7 +33,6 @@ const SOS = () => {
                 ) : (
                   <IoArrowRedoCircleOutline className="down-arrow" />
                 )}
-
               </div>
               <br />
               <div className={click === i ? "adress-sos.show" : "adress-sos"}>

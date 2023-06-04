@@ -153,29 +153,35 @@ const Posts = () => {
       <div className="Posts-div">
         <h1 className="h1-angels">Angels Protector</h1>
         {posts.map((post) => (
-          <div className="div-2" key={post._id}>
+          <div className="div-2 content" key={post._id}>
             <label className="label-posts">
               <CgProfile className="icon-profile" size={25} />
               {post.user.name}
             </label>
-            <img
-              className="image-posts"
-              src={post.images[0].url}
-              alt={post.image}
-            />
+            <div className="image-wrapper">
+              <img
+                className="image-posts"
+                src={post.images[0].url}
+                alt={post.image}
+              />
+              <div className="description-posts">
+                {showFullDescription
+                  ? post.description
+                  : truncateDescription(post.description, 10)}
+                {post.description.split(" ").length > 10 && (
+                  <button
+                    className="see-more-button"
+                    onClick={toggleDescription}
+                  >
+                    {showFullDescription ? "See Less" : "See More"}
+                  </button>
+                )}
+              </div>
+            </div>
+
             <span className="date-stamp">
               Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
             </span>
-            <p className="description-posts">
-              {showFullDescription
-                ? post.description
-                : truncateDescription(post.description, 10)}
-              {post.description.split(" ").length > 10 && (
-                <button className="see-more-button" onClick={toggleDescription}>
-                  {showFullDescription ? "See Less" : "See More"}
-                </button>
-              )}
-            </p>
             {post.comments.length > 0 && (
               <h3
                 className="comments-word"

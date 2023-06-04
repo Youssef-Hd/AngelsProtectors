@@ -16,7 +16,9 @@ const Search = () => {
         setSearchResults([]);
         return;
       }
-      const response = await axios.get(`https://angelsprotectorss.onrender.com/api/ngo`);
+      const response = await axios.get(
+        `https://angelsprotectorss.onrender.com/api/ngo`
+      );
       const results = response.data.data;
 
       // Filter the results based on the searchQuery
@@ -54,7 +56,7 @@ const Search = () => {
 
         {errorMessage && <p>{errorMessage}</p>}
       </div>
-      
+
       <ul>
         {searchResults.map((ngo) => (
           <li key={ngo._id}>
@@ -64,7 +66,6 @@ const Search = () => {
           </li>
         ))}
       </ul>
-    
     </div>
   );
 };
