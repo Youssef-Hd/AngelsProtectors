@@ -4,12 +4,11 @@ import "./Login.css";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   // Destructure the history object from props
   const [redirectToHome, setRedirectToHome] = useState(false); // Track redirection
-
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -17,18 +16,21 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://angelsprotectorss.onrender.com/api/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://angelsprotectorss.onrender.com/api/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (response.ok) {
         const user = await response.json();
         console.log(user);
-        sessionStorage.setItem('id', user._id);
+        sessionStorage.setItem("id", user._id);
 
         setRedirectToHome(true);
 
@@ -46,7 +48,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className="papa-div-login">
       <div>
         <Nav />
       </div>
@@ -62,7 +64,7 @@ const Login = () => {
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Username"
+          placeholder="Email"
           className="input-User"
         />
         <br />
@@ -71,18 +73,21 @@ const Login = () => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Passowrd"
+          placeholder="Password"
           className="input-User"
         />
-        <br />
-        <br />
-        <br />
         <div className="div-btn-login">
           <button onClick={handleSubmit} type="submit" className="Login-btn">
             Login
           </button>
-          <button className="register-btn">Register New Account</button>
         </div>
+      </div>
+      <div className="div-register-btn-login">
+        <h3 className="h3-register">
+          Not a user yet? 
+        </h3>
+        <Link to='/register'>
+        <button className="register-btn-login">Register Account</button></Link>
       </div>
       {errorMessage && <p>{errorMessage}</p>}
 

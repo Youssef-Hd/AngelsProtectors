@@ -46,7 +46,7 @@ const Register = () => {
     return <Navigate to="/login" replace />;
   }
   return (
-    <div>
+    <div className="papa-div-register">
       <div>
         <Nav />
       </div>
@@ -60,50 +60,56 @@ const Register = () => {
       <br />
       <div className="input-div-register">
         <input
-          type="email"
-          value={email}
-          placeholder="Email"
-          className="input-User"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-
-        <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
           type="text"
           placeholder="Full Name"
-          className="input-User-register"
+          className="input-register"
         />
         <br />
+      <br />
+
+        <input
+          type="email"
+          value={email}
+          placeholder="Email"
+          className="input-register"
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <br />
+        <br />
+
 
         <input
           type="text"
           value={phoneNumber}
           placeholder="Phone Number"
-          className="input-User-register"
+          className="input-register"
           onChange={(e) => setPhoneNumber(e.target.value)}
           required
         />
+        <br />
         <br />
 
         <input
           type="password"
           value={password}
           placeholder="Password"
-          className="input-User-register"
+          className="input-register"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
         <br />
+        <br />
 
         <div className="div-btn-register">
-          <button onClick={handleRegister} className="register-btn">Create Account</button>
+          <button onClick={handleRegister} className="register-btn-create">Create Account</button>
         </div>
       </div>
       <br />
+
       <Footer />
     </div>
   );

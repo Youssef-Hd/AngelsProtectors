@@ -24,6 +24,8 @@
   align-self: center;
 }
 
+
+
 .onduty-input {
   box-sizing: border-box;
   width: 294px;
@@ -41,6 +43,22 @@
   color: #000000;
   display: flex;
   align-self: center;
+}
+
+.description-textarea::placeholder {
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  opacity: 0.5;
+  color: black;
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 72px;
+  letter-spacing: 0px;
+  width: 50%;
+}
+
+.input-file::input{
+  background-color: red;
 }
 
 .description-textarea {
@@ -70,7 +88,7 @@
   word-spacing: 0px;
 }
 
-::placeholder {
+.onduty-input::placeholder {
   font-family: "Josefin Sans";
   font-size: 16px;
   opacity: 0.5;
@@ -212,17 +230,14 @@
   padding: 10px;
 }
 
-.input-file-map ::input{
+.input-file-map ::input {
   background-color: blue;
-
 }
 
-input#file-upload-button{
+/* input#file-upload-button{
   background-color: red;
   color: red;
-}
-
-
+} */
 
 .label-file-map {
   /* background-color: red; */
@@ -231,16 +246,15 @@ input#file-upload-button{
   justify-content: center;
 }
 
-
-.contact-formmm{
+.contact-formmm {
   /* background-color: red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.map-position{
+.map-position {
   width: 100%;
-   display: flex;
-   justify-content: center;
+  display: flex;
+  justify-content: center;
 }

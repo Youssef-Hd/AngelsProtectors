@@ -5,6 +5,9 @@ import Nav from "../../components/Nav/Nav";
 import logo from "../../assets/logo.png";
 import Footer from "../../components/Footer/Footer";
 import "./LocationPosts.css";
+import { useNavigate } from "react-router-dom";
+
+
 
 const containerStyle = {
   width: "600px",
@@ -27,7 +30,7 @@ const LocationPosts = () => {
   });
 
   const mapRef = useRef(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     // Get user's current location
     if (navigator.geolocation) {
@@ -45,6 +48,12 @@ const LocationPosts = () => {
       console.error("Geolocation is not supported by this browser.");
     }
   }, []);
+
+  useEffect (() => {
+    if (!storedId){
+      navigate('/login')
+    }
+  })
 
   function handleImages(e) {
     const filesArray = Array.from(e.target.files);
@@ -82,7 +91,6 @@ const LocationPosts = () => {
     }
   };
   const storedId = sessionStorage.getItem("id");
-
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -223,24 +231,24 @@ const LocationPosts = () => {
             <br />
             {showLocation && (
               <div className="map-position">
-              <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={{
-                  lat: parseFloat(latitude),
-                  lng: parseFloat(longitude),
-                }}
-                zoom={17}
-                onLoad={(map) => {
-                  mapRef.current = map;
-                }}
-              >
-                <Marker
-                  position={{
+                <GoogleMap
+                  mapContainerStyle={containerStyle}
+                  center={{
                     lat: parseFloat(latitude),
                     lng: parseFloat(longitude),
                   }}
-                />
-              </GoogleMap>
+                  zoom={17}
+                  onLoad={(map) => {
+                    mapRef.current = map;
+                  }}
+                >
+                  <Marker
+                    position={{
+                      lat: parseFloat(latitude),
+                      lng: parseFloat(longitude),
+                    }}
+                  />
+                </GoogleMap>
               </div>
             )}
           </LoadScript>

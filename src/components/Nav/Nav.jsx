@@ -5,6 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import tiny from "../../assets/logonav.jpg";
 
 export default function Nav() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -16,7 +17,6 @@ export default function Nav() {
   const [headername, setheadername] = useState("");
 
   const location = useLocation();
-  // console.log(location.pathname);
 
   useEffect(() => {
     headerName();
@@ -48,8 +48,10 @@ export default function Nav() {
         <div className="hamburger" onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen} />
         </div>
+
         <h1 className="H1-Header">{headername}</h1>
-        <Link to='/login'>
+        
+        <Link to="/login">
           <FaUserAlt id="User-icon" />
         </Link>
 
@@ -97,8 +99,35 @@ export default function Nav() {
             Posts
           </Link>
         </ul>
+
+        <div className="Nav-fs">
+        <div className="logo-nav-div">
+        <img className="logo-nav" src={tiny} alt="Tiny-logo" />
+        </div>
+        
+          <Link to='/'>
+            <h2 className="h2-header">Home</h2>
+          </Link>
+          <Link to='/onduty'>
+            <h2 className="h2-header">OnDuty</h2>
+          </Link>
+          <Link to='/posts'>
+            <h2 className="h2-header">Posts</h2>
+          </Link>
+          <Link to='/about'>
+            <h2 className="h2-header">About</h2>
+          </Link>
+          <Link to='/contact'>
+            <h2 className="h2-header">Contact</h2>
+          </Link>
+          <Link to='/sos'>
+            <h2 className="h2-header">SOS</h2>
+          </Link>
+          <Link className="h2-header" to="/login">
+            <FaUserAlt id="User-icon-fs" />
+          </Link>
+        </div>
       </div>
-      
     </div>
   );
 }

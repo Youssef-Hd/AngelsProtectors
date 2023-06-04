@@ -1,20 +1,22 @@
 .Hero-image {
-  background-image: url(http://localhost:5000/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);
+  background-image: url(https://angelsprotectorss.onrender.com/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);
   background-size: cover;
-  height: 50vh;
+  height: 60rem;
+  /* height: auto; */
   width: 100%;
   display: flex;
-  background-position-x: center;
-  background-position-y: center;
+  background-position-x: bottom;
+  background-position-y: top;
 }
 
 .p-home {
-  width: 200px;
+  width: 40rem;
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 550;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 25px;
+  height: 2rem;
 }
 
 .h2-home {
@@ -44,6 +46,15 @@
   /* margin-top: 3rem; */
 }
 
+.experience-h1 {
+  font-size: 300px;
+  z-index: 20;
+  text-align: center;
+  background: red;
+  margin-left: 80px;
+  /* width: 800px; */
+}
+
 .div-p-btn {
   display: flex;
   height: 20vh;
@@ -51,6 +62,16 @@
   align-items: center;
   padding: 20px;
   margin-top: 20px;
+}
+
+.slick-next:before {
+  content: none;
+  display: none;
+}
+
+.slick-next {
+  /* display: none; */
+  right: 0px;
 }
 
 .border-mid {
@@ -75,7 +96,6 @@
   flex-direction: column;
   align-items: center;
   height: 40vh;
-
 }
 
 .label-logo {
@@ -162,7 +182,6 @@
   font-weight: 550;
   font-size: 15px;
   line-height: 25px;
-
 }
 
 .border-mid-last {
@@ -172,5 +191,27 @@
   background-color: #dbca72;
   border-radius: 10px;
   height: 0.5vh;
+}
 
+@media (max-width: 767px) {
+  .Hero-image {
+    background-image: url(https://angelsprotectorss.onrender.com/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);
+    background-size: cover;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    background-position-x: center;
+    background-position-y: center;
+  }
+
+  .p-home {
+    width: 250px;
+    height: auto;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 550;
+    font-size: 15px;
+    line-height: 25px;
+    /* text-align: center; */
+  }
 }

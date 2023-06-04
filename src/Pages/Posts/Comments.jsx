@@ -14,7 +14,7 @@ const CommentSection = () => {
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get("/api/comments");
+      const response = await axios.get("https://angelsprotectorss.onrender.com/api/comments");
       setComments(response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -22,8 +22,9 @@ const CommentSection = () => {
   };
 
   const createComment = async () => {
+    if(storedId){
     try {
-      const response = await axios.post("/api/comments", {
+      const response = await axios.post("https://angelsprotectorss.onrender.com/api/comments", {
         content: newComment,
       });
       setComments([...comments, response.data]);
@@ -31,9 +32,11 @@ const CommentSection = () => {
     } catch (error) {
       console.error("Error creating comment:", error);
     }
-  };
+  }};
+  const storedId = sessionStorage.getItem("id");
 
   const createReply = async (commentId) => {
+    if(storedId){
     try {
       const response = await axios.post(`https://angelsprotectorss.onrender.com/api/comments/${commentId}/replies`, {
         content: newReply,
@@ -47,14 +50,13 @@ const CommentSection = () => {
       setComments(updatedComments);
       setNewReply("");
       setReplyingTo("");
-    } catch (error) {
+    }  catch (error) {
       console.error("Error creating reply:", error);
-    }
+    }} else alert('Please Login')
   };
 
   return (
     <div>
-      {/* <h2>Comments</h2> */}
       <ul>
         {comments.map((comment) => (
           <li key={comment._id}>

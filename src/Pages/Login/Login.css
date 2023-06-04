@@ -21,22 +21,76 @@
 }
 
 .input-User {
-  width: 80%;
+  box-sizing: border-box;
+  width: 320px;
+  font-family: "Josefin Sans";
+  height: 36px;
+  border-width: 0px 0px 2px 1px;
+  border-style: solid;
+  border-color: #dbca72;
+  border-radius: 8px;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+  display: flex;
+  align-self: center;
   text-align: center;
-  height: 42px;
-  border-bottom: 2px solid black;
 }
 
 .input-div-login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 50vh;
+  justify-content: center;
+  height: 30vh;
+  align-self: center;
   font-family: josefin sans;
 }
 
 .Login-btn {
-  width: 238px;
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  background-color: #dbca72;
+  font-family: josefin sans;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 20px; */
+  align-self: flex-end;
+  line-height: 20px;
+  margin-top: 6px;
+  margin-right: 40px;
+}
+
+.div-register-btn-login{
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  height:28vh
+
+}
+
+.h3-register{
+  text-align: center;
+  width: 300px;
+  line-height: 30px;
+  font-weight: 100;
+}
+
+.papa-div-login{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.register-btn-login {
+  width: 200px;
   height: 41px;
   border: none;
   border-radius: 4px;
@@ -47,28 +101,14 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
-}
-
-.register-btn {
-  width: 298.12px;
-  height: 41px;
-  border: none;
-  border-radius: 4px;
-  background-color: #dbca72;
-  font-family: josefin sans;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
+ 
 }
 
 .div-btn-login {
   display: flex;
-  height: 18vh;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  width: 400px;
+  height: 10vh;
+  /* justify-content: space-between;
+  align-items: center; */
 }

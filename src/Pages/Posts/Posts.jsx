@@ -16,10 +16,13 @@ const Posts = () => {
   const [replyText, setReplyText] = useState(""); // Added state for reply input
   const [showReplyInput, setShowReplyInput] = useState({});
   const [showComments, setShowComments] = useState({});
+  const [showAllComments, setShowAllComments] = useState(false); // New state for showing all comments
 
   const allPosts = async () => {
     try {
-      const response = await axios.get("https://angelsprotectorss.onrender.com/api/location");
+      const response = await axios.get(
+        "https://angelsprotectorss.onrender.com/api/location"
+      );
       const postsData = response.data.data;
       console.log("responseeee", response);
 
@@ -43,11 +46,6 @@ const Posts = () => {
                 const { content, user } = reply;
                 return { content, user };
               });
-              // // END OF NEW CODE
-              // const userResponse = await axios.get(
-              //   `https://angelsprotectorss.onrender.com/api/user/getuser/${comment.user}`
-              // );
-              // const userData = userResponse.data;
 
               return {
                 ...comment,
@@ -92,22 +90,25 @@ const Posts = () => {
   const storedId = sessionStorage.getItem("id");
 
   const handleCommentSubmit = async (postId) => {
-    if(storedId){
-    try {
-      const response = await axios.post("https://angelsprotectorss.onrender.com/api/comment", {
-        postId,
-        content: commentText,
-        user: storedId,
-      });
-      console.log("Comment posted:", response.data);
-      allPosts();
-      setShowComments({ ...showComments, [postId]: true }); // Initialize visibility for the new comment
-      setCommentText(""); // Clear comment input after submitting
-    } catch (error) {
-      console.log("Error posting comment:", error);
-    }}
-    else{
-      alert("please login ")
+    if (storedId) {
+      try {
+        const response = await axios.post(
+          "https://angelsprotectorss.onrender.com/api/comment",
+          {
+            postId,
+            content: commentText,
+            user: storedId,
+          }
+        );
+        console.log("Comment posted:", response.data);
+        allPosts();
+        setShowComments({ ...showComments, [postId]: true }); // Initialize visibility for the new comment
+        setCommentText(""); // Clear comment input after submitting
+      } catch (error) {
+        console.log("Error posting comment:", error);
+      }
+    } else {
+      alert("please login ");
     }
   };
   const handleReplyChange = (event) => {
@@ -115,30 +116,35 @@ const Posts = () => {
   };
 
   const handleReplySubmit = async (commentId) => {
-    try {
-      const response = await axios.post(
-        "https://angelsprotectorss.onrender.com/api/reply/postreply",
-        {
-          commentId,
-          content: replyText,
-          user: storedId,
-        }
-      );
-      console.log("Reply posted:", response.data);
-      allPosts();
-      setReplyText("");
-      setShowReplyInput({ ...showReplyInput, [commentId]: false }); // Hide reply input after submitting
-    } catch (error) {
-      console.log("Error posting reply:", error);
-    }
+    if (storedId) {
+      try {
+        const response = await axios.post(
+          "https://angelsprotectorss.onrender.com/api/reply/postreply",
+          {
+            commentId,
+            content: replyText,
+            user: storedId,
+          }
+        );
+        console.log("Reply posted:", response.data);
+        allPosts();
+        setReplyText("");
+        setShowReplyInput({ ...showReplyInput, [commentId]: false }); // Hide reply input after submitting
+      } catch (error) {
+        console.log("Error posting reply:", error);
+      }
+    } else alert("Please Login First");
+    console.log("comments??", posts);
   };
-  console.log("comments??", posts);
 
-  const toggleComments = (postId) => {
-    setShowComments((prevShowComments) => ({
-      ...prevShowComments,
-      [postId]: !prevShowComments[postId],
-    }));
+  // const toggleComments = (postId) => {
+  //   setShowComments((prevShowComments) => ({
+  //     ...prevShowComments,
+  //     [postId]: !prevShowComments[postId],
+  //   }));
+  // };
+  const toggleComments = () => {
+    setShowAllComments(!showAllComments);
   };
 
   return (
@@ -170,27 +176,32 @@ const Posts = () => {
                 </button>
               )}
             </p>
-            {post.comments.map((comment) => (
+            {post.comments.length > 0 && (
               <h3
                 className="comments-word"
                 onClick={() => toggleComments(post._id)}
               >
-                Comments
-                {showComments[post._id] ? (
-                  <BsArrowUpCircleFill className="icon-arrow-down" size={17} />
+                Display All Comments
+                {showAllComments ? (
+                  <BsArrowUpCircleFill className="icon-arrow-down" size={25} />
                 ) : (
                   <BsArrowDownCircleFill
                     className="icon-arrow-down"
-                    size={17}
+                    size={20}
                   />
                 )}
               </h3>
-            ))}
+            )}
             <div className="comment-content-div">
-              {post.comments.map((comment) => (
-                <div className="comment-name-div-posts" key={comment._id}>
+              {post.comments.map((comment, index) => (
+                <div
+                  className={`comment-name-div-posts ${
+                    !showAllComments && index >= 1 ? "hidden-comment" : ""
+                  }`}
+                  key={comment._id}
+                >
                   <label className="comment-user-name">
-                    <CgProfile className="icon-profile-comment" size={15} />
+                    <CgProfile className="icon-profile-comment" size={16} />
                     {comment.user.name}
                   </label>
                   <p className="Comment-section-p">{comment.content}</p>
@@ -207,7 +218,7 @@ const Posts = () => {
                     <div className="div-post-btn">
                       <textarea
                         type="text"
-                        // placeholder="Enter New Reply"
+                        placeholder="Enter New Reply"
                         className="Reply-input" // Updated line: Reply-input
                         value={replyText}
                         onChange={(event) =>
@@ -251,7 +262,7 @@ const Posts = () => {
                 className="Post-comment-button"
                 onClick={() => handleCommentSubmit(post._id)}
               >
-                Comment
+                Post
               </button>
             </div>
           </div>

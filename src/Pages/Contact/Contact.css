@@ -71,6 +71,9 @@ input {
   align-self: center;
   font-style: normal;
   font-weight: 500;
+  font-family: josefin sans;
+  padding-left: 5px;
+  padding-top: 5px;
   font-size: 20px;
   line-height: 20px;
 }

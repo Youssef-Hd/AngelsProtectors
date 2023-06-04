@@ -1,7 +1,11 @@
-.h1-angels{
+.h1-angels {
   color: #dbca72;
   text-align: center;
   margin-top: 30px;
+}
+
+.papito-div{
+  background-color: #f0f1f3;
 }
 
 .div-2 {
@@ -10,6 +14,7 @@
   margin-top: 2rem;
   position: relative;
   margin-bottom: 2rem;
+  background-color: #f0f1f3;
 }
 .label-posts {
   /* margin-left: 30px; */
@@ -34,9 +39,9 @@
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  width: 80%;
+  width: 300px;
   opacity: 0.9;
-  height: 3vh;
+  height: 4vh;
   display: flex;
   justify-content: center;
   align-self: center;
@@ -56,11 +61,16 @@
   background: none;
   border: none;
   color: black;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  margin-bottom: 14px;
 }
 
 .Comment-reply-container {
   display: flex;
   flex-direction: column;
+  /* background-color: white; */
 }
 
 .Comment-section-p {
@@ -68,11 +78,8 @@
   height: 10vh;
   border: 1px solid #dbca72;
   border-radius: 8px;
-  /* display: flex; */
-  /* align-items: center; */
   justify-content: center;
-  /* align-self: center; */
-  /* justify-content: center; */
+  background-color: white;
   width: 71vw;
   padding: 10px;
   text-align: left;
@@ -81,22 +88,20 @@
 .comment-user-name {
   position: absolute;
   font-size: small;
-  margin-left: 28px;
   display: flex;
   align-items: center;
 }
 
 .Reply-section-p {
-  margin-left: 20px;
+  /* margin-left: 20px; */
   margin-bottom: 5px;
   border: 1px solid #dbca72;
   border-radius: 8px;
-  /* height: 20px; */
-  width: 74%;
+  background: white;
+  width: 200px;
   padding: 10px;
   display: flex;
-  align-self: center;
-  padding: 10px;
+  align-self: flex-end;
 }
 
 .Comment-reply-container {
@@ -120,39 +125,49 @@
   font-size: x-small;
 }
 
+.Comment-input::placeholder {
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  opacity: 0.5;
+  color: black;
+  text-align: start;
+  letter-spacing: 0px;
+  padding: 10px;
+}
+
 .Comment-input {
-  width: 315px;
-  height: 155px;
+  width: 270px;
+  height: 100px;
   border: 1px solid #dbca72;
   border-radius: 8px;
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   align-self: center;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  background-color: #f0f1f3;
+  background-color: white;
   line-height: 20px;
+  margin-right: 1rem;
 }
 
 .Post-comment-button {
   box-sizing: border-box;
-  width: 140px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
   border: none;
-  border-radius: 8px;
-  background: rgba(219, 202, 114, 0.8);
-  margin-top: 20px;
+  background: transparent;
+  margin-top: 4px;
+  color: #dbca72;
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-self: flex-end;
   font-family: "Josefin Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: bolder;
+  font-size: 17px;
   line-height: 20px;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-right: 1rem;
+  margin-right: 40px;
   cursor: pointer;
 }
 
@@ -160,33 +175,41 @@
   display: flex;
   flex-direction: column;
   margin-left: 33px;
-}
+  /* flex-wrap: wrap; */
 
-.Reply-button {
-  /* Updated styles: Highlighted in orange */
-  color: orange;
 }
+/* 
 
-textarea input:focus{
+/* textarea input:focus {
   border: none;
-}
+} */
 
 .Reply-input {
-  width: 82%;
+  width: 240px;
   padding: 5px;
   border-radius: 8px;
   height: 2vh;
   border: 1px solid #dbca72;
   display: flex;
-  align-self: center;
+  align-self: flex-end;
   height: 5vh;
-  background-color: #f0f1f3;;
+  background-color: white;
   justify-content: flex-start;
-
 }
 .comment-name-div-posts {
   display: flex;
   flex-direction: column;
+}
+
+.Reply-input::placeholder {
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  opacity: 0.5;
+  color: black;
+  text-align: start;
+  letter-spacing: 0px;
+  padding: 5px;
+
 }
 
 .div-post-btn {
@@ -196,62 +219,61 @@ textarea input:focus{
 
 .Post-reply-button {
   width: 40px;
-  height: 25px;
   border: none;
-  border-radius: 8px;
-  background: rgba(219, 202, 114, 0.8);
+  background: transparent;
   margin-top: 6px;
-  margin-right: 32px;
-  display: flex;
+  margin-right: 15px;
   justify-content: center;
   align-self: end;
-
+  color: #dbca72;
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 17px;
   line-height: 20px;
-  align-items: center;
-  /* margin-bottom: 20px; */
+  cursor: pointer;
 }
 
 .Show-reply-button {
   display: flex;
-  /* justify-content: flex-start; */
   background: transparent;
   font-weight: bolder;
   color: #dbca72;
   border: none;
   align-self: end;
-  margin-right: 30px;
-
-  /* align-items: end; */
-  /* align-self: c */
-  /* align-content: center; */
+  /* margin-right: 30px; */
+  cursor: pointer;
 }
 
 .comments-word {
   margin-left: 30px;
   display: flex;
   align-items: center;
-  /* padding: 2; */
+  align-self: center;
+  width: 250px;
+  justify-content: space-between;
 }
 
-.icon-arrow-down{
+.icon-arrow-down {
   padding: 2px;
-  /* background-color: white; */
   color: #dbca72;
+  cursor: pointer;
 }
-
 
 .hide-reply-button {
-  /* position: absolute; */
-
   display: flex;
   align-self: center;
+  border: none;
+  background: transparent;
 
+  color: #dbca72;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  cursor: pointer;
 }
-
 
 .show-comments {
   display: block;
@@ -261,22 +283,23 @@ textarea input:focus{
   display: none;
 }
 
-.icon-profile{
- text-align: center;
- /* padding-top: 20px; */
- color: #dbca72;
-
+.icon-profile {
+  text-align: center;
+  color: #dbca72;
 }
 
-.label-posts{
+.label-posts {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.icon-profile-comment {
+  /* fill: #dbca72; */
+  color: #dbca72;
+  font-size: 30px;
+}
 
-.icon-profile-comment{
-
-color: #dbca72;
-
+.hidden-comment {
+  display: none;
 }

@@ -5,7 +5,7 @@ a {
 }
 
 a:hover {
-   /* set your desired color */ /* Set the color for focused and hovered links */
+  /* set your desired color */ /* Set the color for focused and hovered links */
   /* Additional styles if needed */
 }
 
@@ -17,7 +17,7 @@ a:hover {
 }
 
 .div-images-styling {
-  width: 150px !important;
+  width: 250px !important;
 }
 
 .div-home {
@@ -30,7 +30,7 @@ a:hover {
 }
 
 .caseroul-image-style {
-  width: 150px;
+  width: 250px;
   height: 15vh;
   border-radius: 12px;
 }
@@ -39,4 +39,15 @@ a:hover {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+@media (max-width: 767px) {
+  .caseroul-image-style {
+    width: 150px;
+    height: 15vh;
+    border-radius: 12px;
+  }
+  .div-images-styling {
+    width: 150px !important;
+  }
 }

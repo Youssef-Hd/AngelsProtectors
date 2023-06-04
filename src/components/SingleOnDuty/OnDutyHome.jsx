@@ -11,7 +11,7 @@ const OnDutyHome = () => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 2,
     initialSlide: 0,
     centerMode: true, // Enable center modeTTT
