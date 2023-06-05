@@ -1,5 +1,4 @@
-@media (prefers-color-scheme: light) {
-  /* Styles for light mode */
+
 
 .Hero-image {
   background-image: url(https://angelsprotectorss.onrender.com/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);
@@ -241,5 +240,4 @@ a {
     line-height: 25px;
     /* text-align: center; */
   }
-}
 }
