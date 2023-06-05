@@ -21,8 +21,17 @@
   text-align: center;
   padding: 10px;
 }
+.image-wrapper {
+  width: 90%;
+  height: 40vh;
+  display: flex;
+  align-self: center;
+  position: relative;
+  justify-content: center;
+}
+
 .image-posts {
-  max-width: 800px;
+  max-width: 100%;
   height: 40vh;
   border-radius: 20px;
   object-fit: cover;
@@ -34,7 +43,7 @@
   line-height: 1.5;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  width: 300px;
+  max-width: 400px;
   opacity: 0.9;
   height: 4vh;
   display: flex;
@@ -53,7 +62,6 @@
 }
 
 .see-more-button {
-  z-index: 12;
   background: none;
   border: none;
   color: black;
@@ -116,8 +124,7 @@
 .date-stamp {
   display: flex;
   justify-content: flex-end;
-  margin-right: 40px;
-  margin-top: 10px;
+  max-width: 920px;
   font-size: x-small;
 }
 
@@ -138,7 +145,7 @@
   border-radius: 8px;
   margin-top: 1rem;
   display: flex;
-  align-self: center;
+  align-self: flex-end;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -171,7 +178,8 @@
   display: flex;
   flex-direction: column;
   margin-left: 33px;
-  /* flex-wrap: wrap; */
+   flex-wrap: wrap; 
+   width: 85.5%; 
 }
 /* 
 
@@ -297,3 +305,58 @@
 .hidden-comment {
   display: none;
 }
+
+
+@media (max-width: 767px) {
+  .date-stamp {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    margin-top: 10px;
+    font-size: x-small;
+  }
+
+  .Comment-input {
+    width: 270px;
+    height: 100px;
+    border: 1px solid #dbca72;
+    border-radius: 8px;
+    margin-top: 1rem;
+    display: flex;
+    align-self: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: white;
+    line-height: 20px;
+    margin-right: 1rem;
+  }
+
+  .Post-comment-button {
+    box-sizing: border-box;
+    width: 60px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    margin-top: 4px;
+    color: #dbca72;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size: 17px;
+    line-height: 20px;
+    margin-right: 1rem;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .div-comment-posts {
+    display: flex;
+    flex-direction: column;
+    margin-left: 33px;
+  }
+
+}
+
+

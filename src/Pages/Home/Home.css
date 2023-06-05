@@ -193,6 +193,15 @@
   height: 0.5vh;
 }
 
+
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+
 @media (max-width: 767px) {
   .Hero-image {
     background-image: url(https://angelsprotectorss.onrender.com/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);

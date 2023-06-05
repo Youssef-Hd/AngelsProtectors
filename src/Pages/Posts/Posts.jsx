@@ -158,6 +158,9 @@ const Posts = () => {
               <CgProfile className="icon-profile" size={25} />
               {post.user.name}
             </label>
+            <span className="date-stamp">
+              Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
+            </span>
             <div className="image-wrapper">
               <img
                 className="image-posts"
@@ -177,7 +180,10 @@ const Posts = () => {
                   </button>
                 )}
               </div>
+              
             </div>
+           
+        
             {post.comments.length > 0 && (
               <h3
                 className="comments-word"

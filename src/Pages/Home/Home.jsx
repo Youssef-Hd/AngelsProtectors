@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="Daddy-div">
       {loading ? ( // Render the BeatLoader while loading is true
-        <BeatLoader color="#123abc" loading={true} />
+        <BeatLoader className="Loader" color="#dbca72" loading={true} />
       ) : (
         <Nav />
       )}
@@ -45,7 +45,7 @@ const Home = () => {
       </div>
       <div>
       {loading ? ( // Render the BeatLoader while loading is true
-        <BeatLoader color="#123abc" loading={true} />
+        <BeatLoader  className="Loader" color="#dbca72" loading={true} />
       ) : (
         <OnDutyHome />
       )}
@@ -98,7 +98,7 @@ const Home = () => {
       <br />
       <br />
       {loading ? ( // Render the BeatLoader while loading is true
-        <BeatLoader color="#123abc" loading={true} />
+        <BeatLoader className="Loader" color="#dbca72" loading={true} />
       ) : (
         <Footer />
       )}
