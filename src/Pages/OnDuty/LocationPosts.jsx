@@ -287,7 +287,9 @@ const LocationPosts = () => {
               </label>
             </div>
           )}
+          <div className="footer-onduty">
           <Footer />
+          </div>
         </div>
       </form>
     </div>

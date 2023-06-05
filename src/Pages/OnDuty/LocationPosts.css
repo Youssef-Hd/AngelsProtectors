@@ -148,6 +148,7 @@
   text-align: center;
   align-items: center;
   align-content: center;
+  color: #000000;
 
   font-family: "Josefin Sans";
   font-style: normal;
@@ -234,10 +235,12 @@
   background-color: blue;
 }
 
-/* input#file-upload-button{
-  background-color: red;
-  color: red;
-} */
+.footer-onduty{
+  display: flex;
+  height: 20vh;
+  align-items: flex-end;
+}
+
 
 .label-file-map {
   /* background-color: red; */

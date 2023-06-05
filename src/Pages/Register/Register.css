@@ -64,6 +64,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
+  color: #000000;
   line-height: 20px;
 }
 
@@ -74,4 +75,11 @@
   height: 18vh;
   flex-direction: column;
   justify-content: center;
+}
+
+
+.Footer-register-div{
+  height: 20vh;
+  display: flex;
+align-items: flex-end;
 }

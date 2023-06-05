@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import { CgProfile } from "react-icons/cg";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 import { BsArrowUpCircleFill } from "react-icons/bs";
+import { BeatLoader } from "react-spinners";
 
 import "./Posts.css";
 
@@ -17,6 +18,7 @@ const Posts = () => {
   const [showReplyInput, setShowReplyInput] = useState({});
   const [showComments, setShowComments] = useState({});
   const [showAllComments, setShowAllComments] = useState(false); // New state for showing all comments
+  const [loading, setLoading] = useState(true);
 
   const allPosts = async () => {
     try {
@@ -24,6 +26,8 @@ const Posts = () => {
         "https://angelsprotectorss.onrender.com/api/location"
       );
       const postsData = response.data.data;
+      setLoading(false); // Set loading to false after posts are fetched
+
       console.log("responseeee", response);
 
       const postsWithComments = await Promise.all(
@@ -137,12 +141,6 @@ const Posts = () => {
     console.log("comments??", posts);
   };
 
-  // const toggleComments = (postId) => {
-  //   setShowComments((prevShowComments) => ({
-  //     ...prevShowComments,
-  //     [postId]: !prevShowComments[postId],
-  //   }));
-  // };
   const toggleComments = () => {
     setShowAllComments(!showAllComments);
   };
@@ -158,15 +156,20 @@ const Posts = () => {
               <CgProfile className="icon-profile" size={25} />
               {post.user.name}
             </label>
-            <span className="date-stamp">
-              Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
-            </span>
             <div className="image-wrapper">
-              <img
-                className="image-posts"
-                src={post.images[0].url}
-                alt={post.image}
-              />
+              {loading ? (
+                <div className="loader-posts">
+                  <BeatLoader color="#dbca72" loading={true} size={15} />
+                </div>
+              ) : (
+                <img
+                  className="image-posts"
+                  src={post.images[0].url}
+                  alt={post.image}
+                  onLoad={() => setLoading(false)}
+                />
+              )}
+
               <div className="description-posts">
                 {showFullDescription
                   ? post.description
@@ -180,10 +183,12 @@ const Posts = () => {
                   </button>
                 )}
               </div>
-              
             </div>
-           
-        
+
+            <span className="date-stamp">
+              Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
+            </span>
+
             {post.comments.length > 0 && (
               <h3
                 className="comments-word"
@@ -191,12 +196,12 @@ const Posts = () => {
               >
                 Display All Comments
                 {showAllComments ? (
-                  <BsArrowUpCircleFill className="icon-arrow-down" size={25} />
-                ) : (
                   <BsArrowDownCircleFill
                     className="icon-arrow-down"
                     size={20}
                   />
+                ) : (
+                  <BsArrowUpCircleFill className="icon-arrow-down" size={30} />
                 )}
               </h3>
             )}

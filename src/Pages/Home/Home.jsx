@@ -9,8 +9,13 @@ import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopesBulk } from "@fortawesome/free-solid-svg-icons";
 import { BeatLoader } from "react-spinners";
+import { useContext } from "react";
+
+import ThemeContext from "../../ThemeContext";
 
 const Home = () => {
+  const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
     getHome();
   }, []);
@@ -27,28 +32,24 @@ const Home = () => {
     setLoading(false);
   };
   return (
-    <div className="Daddy-div">
+    <div className={`Daddy-div ${theme}`}>
       {loading ? ( // Render the BeatLoader while loading is true
         <BeatLoader className="Loader" color="#dbca72" loading={true} />
       ) : (
         <Nav />
       )}
-    
 
-    
       <div className="Hero-image">
-      
         <div className="opacity-home">
           <h2 className="h2-home">Recent Posts</h2>
         </div>
-      
       </div>
       <div>
-      {loading ? ( // Render the BeatLoader while loading is true
-        <BeatLoader  className="Loader" color="#dbca72" loading={true} />
-      ) : (
-        <OnDutyHome />
-      )}
+        {loading ? ( // Render the BeatLoader while loading is true
+          <BeatLoader className="Loader" color="#dbca72" loading={true} />
+        ) : (
+          <OnDutyHome />
+        )}
       </div>
       {/* <div className="border-mid"></div> */}
       <div className="div-p-btn">
@@ -56,7 +57,7 @@ const Home = () => {
           This platform was created for people to contribute helping stray dogs
           who are in need of rescuing all across Lebanon region.
         </p>
-        <Link to="/about">
+        <Link className="Link-home" to="/about">
           <button className="btn-home">About Us</button>
         </Link>
       </div>

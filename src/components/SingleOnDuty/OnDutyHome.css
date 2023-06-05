@@ -1,13 +1,20 @@
 a {
-  color: black /* set your desired color */; /* Set the color for both unvisited and visited links */
-  text-decoration: none; /* Remove underline on all links */
+  color: black !important /* set your desired color */; /* Set the color for both unvisited and visited links */
+  text-decoration: none !important; /* Remove underline on all links */
   /* text-align: center; */
+  color: #000 !important;
 }
 
 a:hover {
   /* set your desired color */ /* Set the color for focused and hovered links */
   /* Additional styles if needed */
 }
+
+button {
+  cursor: pointer;
+}
+
+
 
 .span-location {
   display: block;

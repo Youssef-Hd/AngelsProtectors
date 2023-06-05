@@ -17,11 +17,11 @@ const SOS = () => {
   return (
     <div>
       <Nav />
+          {/* <h2 className="h1-sos">List Of Ngo's</h2> */}
       <Search />
       <div>
       <br />
         <div className="accordion">
-          <h2 className="h1-sos">List Of Ngo's</h2>
           <br />
           {Sos.map((item, i) => (
             <div className="papadiv">

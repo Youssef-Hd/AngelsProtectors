@@ -1,3 +1,6 @@
+@media (prefers-color-scheme: light) {
+  /* Styles for light mode */
+
 .Hero-image {
   background-image: url(https://angelsprotectorss.onrender.com/images/1683969275699-Zeus-Product_Home_HERO-mobile.jpg);
   background-size: cover;
@@ -32,10 +35,18 @@
   align-self: flex-end;
 }
 
+.Link-home{
+  color: white !important;
+  text-decoration: none !important;
+}
+
+
+
 .btn-home {
   width: 140px;
   height: 40px;
   border: none;
+  color: black;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
   font-family: "Josefin Sans";
@@ -43,8 +54,8 @@
   font-weight: 400;
   font-size: 20px;
   margin-left: 20px;
-  /* margin-top: 3rem; */
-}
+  margin-top: 3rem;
+} 
 
 .experience-h1 {
   font-size: 300px;
@@ -65,13 +76,13 @@
 }
 
 .slick-next:before {
-  content: none;
-  display: none;
+  content: none !important;
+  display: none !important;
 }
 
 .slick-next {
-  /* display: none; */
-  right: 0px;
+  display: none !important;
+  right: 0px !important;
 }
 
 .border-mid {
@@ -109,6 +120,7 @@
 .btn-onduty-home {
   width: 140px;
   height: 40px;
+  color: black;
   border: none;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
@@ -146,6 +158,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
+  color: black;
   margin-top: 20px;
 }
 
@@ -193,6 +206,11 @@
   height: 0.5vh;
 }
 
+a {
+  color: black !important;
+  text-decoration: none !important;
+
+}
 
 .Loader {
   display: flex;
@@ -223,4 +241,5 @@
     line-height: 25px;
     /* text-align: center; */
   }
+}
 }

@@ -109,8 +109,9 @@ const Register = () => {
         </div>
       </div>
       <br />
-
+<div className="Footer-register-div">
       <Footer />
+      </div>
     </div>
   );
 };

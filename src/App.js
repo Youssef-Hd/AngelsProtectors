@@ -10,12 +10,18 @@ import Posts from "./Pages/Posts/Posts";
 import CommentSection from "./Pages/Posts/Comments";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
+import { useState } from "react";
+import ThemeContext from './ThemeContext';
 
 
 
 
 function App() {
+  const [theme, setTheme] = useState('light'); // Set the initial theme to 'light'
+
   return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -30,6 +36,8 @@ function App() {
         <Route exact path="/register" element={<Register />} />
       </Routes>
     </div>
+    </ThemeContext.Provider>
+
   );
 }
 
