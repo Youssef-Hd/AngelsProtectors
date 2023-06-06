@@ -1,6 +1,5 @@
 .Nav-fs {
   display: flex;
-
   justify-content: flex-end;
   
 }
@@ -11,8 +10,7 @@ Link{
 
 .logo-nav-div{
   display: flex;
-  /* justify-content: center; */
-  /* justify-content: space-between; */
+
 }
 .navigation {
   width: 100%;
