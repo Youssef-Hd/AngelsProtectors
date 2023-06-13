@@ -7,8 +7,6 @@ import Footer from "../../components/Footer/Footer";
 import "./LocationPosts.css";
 import { useNavigate } from "react-router-dom";
 
-
-
 const containerStyle = {
   width: "600px",
   height: "400px",
@@ -28,6 +26,7 @@ const LocationPosts = () => {
     longitude: "",
     images: [],
   });
+  const mapskey = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
   const mapRef = useRef(null);
   const navigate = useNavigate();
@@ -49,11 +48,11 @@ const LocationPosts = () => {
     }
   }, []);
 
-  useEffect (() => {
-    if (!storedId){
-      navigate('/login')
+  useEffect(() => {
+    if (!storedId) {
+      navigate("/login");
     }
-  })
+  });
 
   function handleImages(e) {
     const filesArray = Array.from(e.target.files);
@@ -150,7 +149,7 @@ const LocationPosts = () => {
 
   const handleSaveMap = () => {
     if (latitude && longitude) {
-      const mapImageURL = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=17&size=400x400&markers=color:red%7Clabel:You%7C${latitude},${longitude}&key=AIzaSyAFMeBhortuziszMT3prAJ4NMd9SaG07vw`;
+      const mapImageURL = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=17&size=400x400&markers=color:red%7Clabel:You%7C${latitude},${longitude}&key=${mapskey}`;
 
       fetch(mapImageURL)
         .then((response) => response.blob())
@@ -227,7 +226,7 @@ const LocationPosts = () => {
               Show Location on Map
             </button>
           </div>
-          <LoadScript googleMapsApiKey="AIzaSyAFMeBhortuziszMT3prAJ4NMd9SaG07vw">
+          <LoadScript googleMapsApiKey={mapskey}>
             <br />
             {showLocation && (
               <div className="map-position">
@@ -288,7 +287,7 @@ const LocationPosts = () => {
             </div>
           )}
           <div className="footer-onduty">
-          <Footer />
+            <Footer />
           </div>
         </div>
       </form>

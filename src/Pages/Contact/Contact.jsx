@@ -11,28 +11,26 @@ const Contact = () => {
   const [emailus, setEmailus] = useState("");
   const [subject, setSubject] = useState("");
   const [number, setNumber] = useState(null);
-  const storedId = sessionStorage.getItem('id');
+  const storedId = sessionStorage.getItem("id");
+
+  const myservicekey = process.env.REACT_APP_SERVICE_KEY;
+  const templatekey = process.env.REACT_APP_TEMPLATE_KEY;
+  const publickey = process.env.REACT_APP_PUBLIC_KEY;
 
   const handleEvent = async (e) => {
-    if(storedId){
-    e.preventDefault();
-    var data = { fullName, emailus, number };
-    await emailjs.send(
-      "service_23mb70i",
-      "template_zlb0v2q",
-      data,
-      "j429KtCwAVKA1nhue"
-    );
+    if (storedId) {
+      e.preventDefault();
+      var data = { fullName, emailus, number };
+      await emailjs.send( myservicekey, templatekey, data, publickey,);
 
-    setFullName("");
-    setEmailus("");
-    setNumber("");
-    setSubject("")
-  }else{
-    alert("please sign in")
-  }
+      setFullName("");
+      setEmailus("");
+      setNumber("");
+      setSubject("");
+    } else {
+      alert("please sign in");
+    }
   };
-
 
   return (
     <div className="Contact-div">
@@ -40,7 +38,8 @@ const Contact = () => {
         <Nav />
       </div>
       <img className="Image-contact" src={logo} alt="logo" />
-      <input placeholder="Full Name"
+      <input
+        placeholder="Full Name"
         onChange={(e) => {
           setFullName(e.target.value);
         }}
@@ -48,7 +47,7 @@ const Contact = () => {
         className="border-fullname"
       />
       <input
-      placeholder="Number"
+        placeholder="Number"
         onChange={(e) => {
           setNumber(e.target.value);
         }}
@@ -56,7 +55,7 @@ const Contact = () => {
         className="border-number"
       />
       <input
-      placeholder="Subject"
+        placeholder="Subject"
         onChange={(e) => {
           setSubject(e.target.value);
         }}
@@ -64,8 +63,7 @@ const Contact = () => {
         className="border-subject"
       />
       <textarea
-      
-      placeholder="Email us"
+        placeholder="Email us"
         onChange={(e) => {
           setEmailus(e.target.value);
         }}
@@ -76,7 +74,7 @@ const Contact = () => {
         Submit
       </button>
       <div className="footer-contact">
-      <Footer />
+        <Footer />
       </div>
     </div>
   );
