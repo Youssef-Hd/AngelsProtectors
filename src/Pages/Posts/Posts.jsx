@@ -149,19 +149,21 @@ const Posts = () => {
     <div className="papito-div">
       <Nav />
       <div className="Posts-div">
-        <h1 className="h1-angels">Angels Protector</h1>
+        {/* <h1 className="h1-angels">Angels Protector</h1> */}
         {posts.map((post) => (
           <div className="div-2" key={post._id}>
+            
+            <div className="image-wrapper">
             <label className="label-posts">
               <CgProfile className="icon-profile" size={25} />
               {post.user.name}
             </label>
-            <div className="image-wrapper">
               {loading ? (
                 <div className="loader-posts">
                   <BeatLoader color="#dbca72" loading={true} size={15} />
                 </div>
               ) : (
+                
                 <img
                   className="image-posts"
                   src={post.images[0].url}
@@ -183,12 +185,9 @@ const Posts = () => {
                   </button>
                 )}
               </div>
-            </div>
-
             <span className="date-stamp">
               Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
             </span>
-
             {post.comments.length > 0 && (
               <h3
                 className="comments-word"
@@ -262,7 +261,7 @@ const Posts = () => {
                 </div>
               ))}
             </div>
-
+            </div>
             <div className="div-comment-posts">
               <textarea
                 type="text"

@@ -1,62 +1,61 @@
 .h1-angels {
   color: #dbca72;
   text-align: center;
-  margin-top: 50px;
 }
 
 .papito-div {
   background-color: #f0f1f3;
 }
 
-.loader-posts{
+.loader-posts {
   display: flex;
   justify-content: center;
 }
-
 
 .div-2 {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  position: relative;
-  margin-bottom: 2rem;
   background-color: #f0f1f3;
 }
+
 .label-posts {
   text-align: center;
-  padding: 10px;
 }
+
 .image-wrapper {
-  width: 90%;
-  height: 40vh;
+  max-width: 500px;
+  height: auto;
   display: flex;
+  flex-direction: column;
   align-self: center;
-  position: relative;
-  justify-content: center;
+  /* background-color: salmon;   */
 }
 
 .image-posts {
-  max-width: 100%;
-  height: 40vh;
-  border-radius: 20px;
+  max-width: 500px;
+  min-width: 500px;
+  height: auto;
+  border-radius: 2px;
   object-fit: cover;
+  /* background-color: rebeccapurple; */
 }
 
 .description-posts {
-  position: absolute;
+  position: relative;
   font-size: small;
   line-height: 1.5;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   max-width: 400px;
   opacity: 0.9;
-  height: 4vh;
+  height: 3vh;
   display: flex;
+  bottom: 60px;
+  align-items: center;
+  align-self: center;
   justify-content: center;
-  align-self: flex-end;
   color: white;
   padding: 10px;
-  margin-bottom: 20px;
 }
 
 .Posts-div {
@@ -70,10 +69,10 @@
   background: none;
   border: none;
   color: black;
-  text-align: center;
   align-self: center;
   cursor: pointer;
-  margin-bottom: 14px;
+  width: 100px;
+  transition: ease-in-out;
 }
 
 .Comment-reply-container {
@@ -95,7 +94,7 @@
 }
 
 .comment-user-name {
-  position: absolute;
+  /* position: absolute; */
   font-size: small;
   display: flex;
   align-items: center;
@@ -114,24 +113,24 @@
 }
 
 .Comment-reply-container {
-  margin-left: 20px;
-  height: auto;
+  /* margin-left: 20px; */
+  /* height: auto; */
 }
 
 .comment-content-div {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  /* align-items: center; */
   background-color: #f0f1f3;
 }
 
 .date-stamp {
   display: flex;
+  position: relative;
+  bottom: 40px;
   justify-content: flex-end;
-  max-width: 1240px;
   font-size: x-small;
-  padding: 4px;
 }
 
 .Comment-input::placeholder {
@@ -149,15 +148,15 @@
   height: 100px;
   border: 1px solid #dbca72;
   border-radius: 8px;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
   align-self: center;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   background-color: white;
-  line-height: 20px;
-  margin-right: 1rem;
+  /* line-height: 20px; */
+  /* margin-right: 1rem; */
 }
 
 .Post-comment-button {
@@ -186,7 +185,6 @@
   margin-left: 187px;
 }
 
-
 .Reply-input {
   width: 240px;
   padding: 5px;
@@ -199,6 +197,7 @@
   background-color: white;
   justify-content: flex-start;
 }
+
 .comment-name-div-posts {
   display: flex;
   flex-direction: column;
@@ -250,7 +249,6 @@
 }
 
 .comments-word {
-  margin-left: 30px;
   display: flex;
   align-items: center;
   align-self: center;
@@ -294,7 +292,7 @@
 
 .label-posts {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
@@ -334,7 +332,6 @@
     cursor: pointer;
   }
 
-
   .Comment-input {
     max-width: 270px;
     height: 100px;
@@ -369,6 +366,7 @@
     margin-right: 45px;
     cursor: pointer;
   }
+
   .div-comment-posts {
     display: flex;
     flex-direction: column;
