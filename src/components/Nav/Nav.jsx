@@ -23,21 +23,22 @@ export default function Nav() {
   }, [headername]);
 
   const headerName = () => {
-    if (location.pathname === "/about") {
+    if (location.pathname ==== "/about") {
       setheadername("About Us");
     } else if (location.pathname ==="/") {
+    } else if (location.pathname === "/") {
       setheadername("Home");
-    } else if (location.pathname === "/onduty") {
+    } else if (location.pathname ==== "/onduty") {
       setheadername("On Duty");
-    } else if (location.pathname === "/contact") {
+    } else if (location.pathname ==== "/contact") {
       setheadername("Contact Us");
-    } else if (location.pathname === "/sos") {
+    } else if (location.pathname ==== "/sos") {
       setheadername("SOS");
-    } else if (location.pathname === "/posts") {
+    } else if (location.pathname ==== "/posts") {
       setheadername("Posts");
-    } else if (location.pathname === "/login") {
+    } else if (location.pathname ==== "/login") {
       setheadername("Login");
-    } else if (location.pathname === "/register") {
+    } else if (location.pathname ==== "/register") {
       setheadername("Register");
     }
   };

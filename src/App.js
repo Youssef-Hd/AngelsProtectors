@@ -14,8 +14,6 @@ import { useState } from "react";
 import ThemeContext from './ThemeContext';
 
 
-
-
 function App() {
   const [theme, setTheme] = useState('light'); // Set the initial theme to 'light'
 
