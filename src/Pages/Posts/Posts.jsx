@@ -169,7 +169,6 @@ const Posts = () => {
                   onLoad={() => setLoading(false)}
                 />
               )}
-
               <div className="description-posts">
                 {showFullDescription
                   ? post.description
@@ -183,84 +182,86 @@ const Posts = () => {
                   </button>
                 )}
               </div>
-            </div>
 
-            <span className="date-stamp">
-              Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
-            </span>
-
-            {post.comments.length > 0 && (
-              <h3
-                className="comments-word"
-                onClick={() => toggleComments(post._id)}
-              >
-                Display All Comments
-                {showAllComments ? (
-                  <BsArrowDownCircleFill
-                    className="icon-arrow-down"
-                    size={20}
-                  />
-                ) : (
-                  <BsArrowUpCircleFill className="icon-arrow-down" size={30} />
-                )}
-              </h3>
-            )}
-            <div className="comment-content-div">
-              {post.comments.map((comment, index) => (
-                <div
-                  className={`comment-name-div-posts ${
-                    !showAllComments && index >= 1 ? "hidden-comment" : ""
-                  }`}
-                  key={comment._id}
+              <span className="date-stamp">
+                Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
+              </span>
+              {post.comments.length > 0 && (
+                <h3
+                  className="comments-word"
+                  onClick={() => toggleComments(post._id)}
                 >
-                  <label className="comment-user-name">
-                    <CgProfile className="icon-profile-comment" size={16} />
-                    {comment.user.name}
-                  </label>
-                  <p className="Comment-section-p">{comment.content}</p>
-                  <div className="Comment-reply-container">
-                    {comment.replies.map((reply) => (
-                      <p className="Reply-section-p" key={reply._id}>
-                        {reply.content}
-
-                        {reply.name}
-                      </p>
-                    ))}
-                  </div>
-                  {showReplyInput[comment._id] && (
-                    <div className="div-post-btn">
-                      <textarea
-                        type="text"
-                        placeholder="Enter New Reply"
-                        className="Reply-input" // Updated line: Reply-input
-                        value={replyText}
-                        onChange={(event) =>
-                          handleReplyChange(event, comment._id)
-                        }
-                      />
-                      <button
-                        className="Post-reply-button" // Updated line:
-                        onClick={() => handleReplySubmit(comment._id)}
-                      >
-                        Reply
-                      </button>
-                    </div>
+                  Display All Comments
+                  {showAllComments ? (
+                    <BsArrowDownCircleFill
+                      className="icon-arrow-down"
+                      size={20}
+                    />
+                  ) : (
+                    <BsArrowUpCircleFill
+                      className="icon-arrow-down"
+                      size={30}
+                    />
                   )}
-                  <button
-                    className={`Show-reply-button ${
-                      showReplyInput[comment._id] ? "hide-reply-button" : ""
+                </h3>
+              )}
+              <div className="comment-content-div">
+                {post.comments.map((comment, index) => (
+                  <div
+                    className={`comment-name-div-posts ${
+                      !showAllComments && index >= 1 ? "hidden-comment" : ""
                     }`}
-                    onClick={() =>
-                      setShowReplyInput({
-                        ...showReplyInput,
-                        [comment._id]: !showReplyInput[comment._id],
-                      })
-                    }
+                    key={comment._id}
                   >
-                    {showReplyInput[comment._id] ? "Hide" : "Reply"}
-                  </button>
-                </div>
-              ))}
+                    <label className="comment-user-name">
+                      <CgProfile className="icon-profile-comment" size={16} />
+                      {comment.user.name}
+                    </label>
+                    <p className="Comment-section-p">{comment.content}</p>
+                    <div className="Comment-reply-container">
+                      {comment.replies.map((reply) => (
+                        <p className="Reply-section-p" key={reply._id}>
+                          {reply.content}
+
+                          {reply.name}
+                        </p>
+                      ))}
+                    </div>
+                    {showReplyInput[comment._id] && (
+                      <div className="div-post-btn">
+                        <textarea
+                          type="text"
+                          placeholder="Enter New Reply"
+                          className="Reply-input" // Updated line: Reply-input
+                          value={replyText}
+                          onChange={(event) =>
+                            handleReplyChange(event, comment._id)
+                          }
+                        />
+                        <button
+                          className="Post-reply-button" // Updated line:
+                          onClick={() => handleReplySubmit(comment._id)}
+                        >
+                          Reply
+                        </button>
+                      </div>
+                    )}
+                    <button
+                      className={`Show-reply-button ${
+                        showReplyInput[comment._id] ? "hide-reply-button" : ""
+                      }`}
+                      onClick={() =>
+                        setShowReplyInput({
+                          ...showReplyInput,
+                          [comment._id]: !showReplyInput[comment._id],
+                        })
+                      }
+                    >
+                      {showReplyInput[comment._id] ? "Hide" : "Reply"}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="div-comment-posts">

@@ -1,69 +1,61 @@
 .h1-angels {
   color: #dbca72;
   text-align: center;
-  margin-top: 50px;
 }
 
 .papito-div {
+  display: flex;
+  flex-direction: column;
   background-color: #f0f1f3;
 }
 
-.loader-posts{
+.loader-posts {
   display: flex;
   justify-content: center;
 }
 
-
 .div-2 {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  position: relative;
-  margin-bottom: 2rem;
-  background-color: #f0f1f3;
 }
+
 .label-posts {
   text-align: center;
   padding: 10px;
 }
 .image-wrapper {
-  width: 90%;
-  height: 40vh;
   display: flex;
+  flex-direction: column;
   align-self: center;
-  position: relative;
   justify-content: center;
 }
 
 .image-posts {
-  max-width: 100%;
-  height: 40vh;
+  max-width: 600px;
+  max-height: 40vh;
   border-radius: 20px;
   object-fit: cover;
+  background: #000;
 }
 
 .description-posts {
-  position: absolute;
+  position: relative;
   font-size: small;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   max-width: 400px;
   opacity: 0.9;
-  height: 4vh;
+  max-height: 2.5vh;
   display: flex;
-  justify-content: center;
-  align-self: flex-end;
+  align-self: center;
+  align-items: center;
+  bottom: 50px;
   color: white;
   padding: 10px;
-  margin-bottom: 20px;
 }
 
 .Posts-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #f0f1f3;
 }
 
 .see-more-button {
@@ -73,7 +65,6 @@
   text-align: center;
   align-self: center;
   cursor: pointer;
-  margin-bottom: 14px;
 }
 
 .Comment-reply-container {
@@ -95,7 +86,7 @@
 }
 
 .comment-user-name {
-  position: absolute;
+  /* position: absolute; */
   font-size: small;
   display: flex;
   align-items: center;
@@ -103,14 +94,14 @@
 
 .Reply-section-p {
   /* margin-left: 20px; */
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  display: flex;
+  align-self: flex-end;
   border: 1px solid #dbca72;
   border-radius: 8px;
   background: white;
   width: 200px;
   padding: 10px;
-  display: flex;
-  align-self: flex-end;
 }
 
 .Comment-reply-container {
@@ -129,9 +120,7 @@
 .date-stamp {
   display: flex;
   justify-content: flex-end;
-  max-width: 1240px;
   font-size: x-small;
-  padding: 4px;
 }
 
 .Comment-input::placeholder {
@@ -185,7 +174,6 @@
   flex-direction: column;
   margin-left: 187px;
 }
-
 
 .Reply-input {
   width: 240px;
@@ -269,7 +257,6 @@
   align-self: center;
   border: none;
   background: transparent;
-
   color: #dbca72;
   font-family: "Josefin Sans";
   font-style: normal;
@@ -333,7 +320,6 @@
     line-height: 20px;
     cursor: pointer;
   }
-
 
   .Comment-input {
     max-width: 270px;
