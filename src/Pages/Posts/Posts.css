@@ -10,7 +10,6 @@
 }
 
 .loader-posts {
-.loader-posts {
   display: flex;
   justify-content: center;
 }
@@ -20,7 +19,6 @@
   flex-direction: column;
   background-color: #f0f1f3;
 }
-
 
 .label-posts {
   text-align: center;
@@ -83,28 +81,9 @@
   /* background-color: white; */
 }
 
-.Comment-section-p {
-  min-height: 2.5rem;
-  height: 10vh;
-  border: 1px solid #dbca72;
-  border-radius: 8px;
-  justify-content: center;
-  background-color: white;
-  max-width: 71vw;
-  padding: 10px;
-  text-align: left;
-}
 
-.comment-user-name {
-  /* position: absolute; */
-  font-size: small;
-  display: flex;
-  align-items: center;
-}
 
 .Reply-section-p {
-  /* margin-left: 20px; */
-  /* margin-bottom: 5px; */
   display: flex;
   align-self: flex-end;
   border: 1px solid #dbca72;
@@ -119,13 +98,7 @@
   /* height: auto; */
 }
 
-.comment-content-div {
-  display: flex;
-  justify-content: center;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  background-color: #f0f1f3;
-}
+
 
 .date-stamp {
   display: flex;
@@ -140,7 +113,7 @@
   font-size: 16px;
   opacity: 0.5;
   color: black;
-  text-align: start;
+  text-align: flex-start;
   letter-spacing: 0px;
   padding: 10px;
 }
@@ -150,15 +123,10 @@
   height: 100px;
   border: 1px solid #dbca72;
   border-radius: 8px;
-  /* margin-top: 1rem; */
-  display: flex;
-  align-self: center;
+  /* display: flex; */
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  background-color: white;
-  /* line-height: 20px; */
-  /* margin-right: 1rem; */
 }
 
 .Post-comment-button {
@@ -181,10 +149,38 @@
   cursor: pointer;
 }
 
+.comment-content-div {
+  display: flex;
+  justify-content: space-around;
+  max-width: 80%;
+  align-self: center;
+  flex-wrap: wrap;
+}
+.comment-user-name {
+  font-size: small;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  font-size: 18px;
+  top: 15px;
+}
 .div-comment-posts {
   display: flex;
   flex-direction: column;
-  margin-left: 187px;
+  justify-content: center;
+  align-items: center;
+  background: wheat;
+  
+}
+.Comment-section-p {
+  min-height: 2.5rem;
+  height: 10vh;
+  border: 1px solid #dbca72;
+  border-radius: 8px;
+  background-color: white;
+  min-width: 21vw;
+  padding: 10px;
+  text-align: left;
 }
 
 .Reply-input {
@@ -196,7 +192,6 @@
   display: flex;
   align-self: flex-end;
   height: 5vh;
-  background-color: white;
   justify-content: flex-start;
 }
 
@@ -293,14 +288,13 @@
 
 .label-posts {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .icon-profile-comment {
-  /* fill: #dbca72; */
   color: #dbca72;
-  font-size: 30px;
+  font-size: 150px;
 }
 
 .hidden-comment {
