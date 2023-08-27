@@ -7,7 +7,6 @@ import { CgProfile } from "react-icons/cg";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 import { BsArrowUpCircleFill } from "react-icons/bs";
 import { BeatLoader } from "react-spinners";
-
 import "./Posts.css";
 
 const Posts = () => {
@@ -17,7 +16,7 @@ const Posts = () => {
   const [replyText, setReplyText] = useState(""); // Added state for reply input
   const [showReplyInput, setShowReplyInput] = useState({});
   const [showComments, setShowComments] = useState({});
-  const [showAllComments, setShowAllComments] = useState(false); // New state for showing all comments
+  const [showAllComments, setShowAllComments] = useState(true); // New state for showing all comments
   const [loading, setLoading] = useState(true);
 
   const allPosts = async () => {
@@ -152,18 +151,16 @@ const Posts = () => {
         {/* <h1 className="h1-angels">Angels Protector</h1> */}
         {posts.map((post) => (
           <div className="div-2" key={post._id}>
-            
             <div className="image-wrapper">
-            <label className="label-posts">
-              <CgProfile className="icon-profile" size={25} />
-              {post.user.name}
-            </label>
+              <label className="label-posts">
+                <CgProfile className="icon-profile" size={25} />
+                {post.user.name}
+              </label>
               {loading ? (
                 <div className="loader-posts">
                   <BeatLoader color="#dbca72" loading={true} size={15} />
                 </div>
               ) : (
-                
                 <img
                   className="image-posts"
                   src={post.images[0].url}
@@ -171,7 +168,6 @@ const Posts = () => {
                   onLoad={() => setLoading(false)}
                 />
               )}
-
               <div className="description-posts">
                 {showFullDescription
                   ? post.description
@@ -185,25 +181,32 @@ const Posts = () => {
                   </button>
                 )}
               </div>
-            <span className="date-stamp">
-              Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
-            </span>
-            {post.comments.length > 0 && (
-              <h3
-                className="comments-word"
-                onClick={() => toggleComments(post._id)}
-              >
-                Display All Comments
-                {showAllComments ? (
-                  <BsArrowDownCircleFill
-                    className="icon-arrow-down"
-                    size={20}
-                  />
-                ) : (
-                  <BsArrowUpCircleFill className="icon-arrow-down" size={30} />
-                )}
-              </h3>
-            )}
+
+              <span className="date-stamp">
+                Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
+              </span>
+
+              {post.comments.length > 0 && (
+                <h3
+                  className="comments-word"
+                  onClick={() => toggleComments(post._id)}
+                >
+                  Display All Comments
+                  {showAllComments ? (
+                    <BsArrowDownCircleFill
+                      className="icon-arrow-down"
+                      size={20}
+                    />
+                  ) : (
+                    <BsArrowUpCircleFill
+                      className="icon-arrow-down"
+                      size={30}
+                    />
+                  )}
+                </h3>
+              )}
+            </div>
+
             <div className="comment-content-div">
               {post.comments.map((comment, index) => (
                 <div
@@ -213,7 +216,7 @@ const Posts = () => {
                   key={comment._id}
                 >
                   <label className="comment-user-name">
-                    <CgProfile className="icon-profile-comment" size={16} />
+                    <CgProfile className="icon-profile-comment" size={25} />
                     {comment.user.name}
                   </label>
                   <p className="Comment-section-p">{comment.content}</p>
@@ -261,8 +264,8 @@ const Posts = () => {
                 </div>
               ))}
             </div>
-            </div>
-            <div className="div-comment-posts">
+          
+        <div className="div-comment-posts">
               <textarea
                 type="text"
                 placeholder="Comment Here"
@@ -278,6 +281,7 @@ const Posts = () => {
               </button>
             </div>
           </div>
+          
         ))}
       </div>
       <br />

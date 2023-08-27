@@ -17,7 +17,7 @@ const About = () => {
           alt="imghero"
         />
       </div>
-      <img className="Image-about" src={logo} />
+      <img className="Image-about" src={logo}  alt="logo"/>
       <p className="p-about">
         This platform was created for people to contribute helping stray dogs
         who are in need of rescuing all across Lebanon region.
