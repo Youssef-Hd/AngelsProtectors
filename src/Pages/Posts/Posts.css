@@ -62,8 +62,8 @@
   padding: 10px;
 }
 
-.Posts-div {
-}
+/* .Posts-div {
+} */
 
 .see-more-button {
   background: none;
@@ -85,18 +85,33 @@
 
 .Reply-section-p {
   display: flex;
-  align-self: flex-end;
+  justify-content: flex-start;
+  align-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-start;
   border: 1px solid #dbca72;
   border-radius: 8px;
   background: white;
-  width: 200px;
+  width: 150px;
   padding: 10px;
 }
+.reply_div{
+  /* background: salmon; */
+  display: flex;
+  flex-direction: column;
+}
 
-.Comment-reply-container {
+.user_reply{
+  position: relative;
+  font-size: small;
+  font-weight: bold;
+  top: 15px;
+}
+
+/* .Comment-reply-container { */
   /* margin-left: 20px; */
   /* height: auto; */
-}
+/* } */
 
 
 
@@ -135,17 +150,16 @@
   height: 30px;
   border: none;
   background: transparent;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   color: #dbca72;
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-self: flex-end;
   font-family: "Josefin Sans";
   font-weight: bolder;
   font-size: 17px;
   line-height: 20px;
   margin-left: 200px;
-
   cursor: pointer;
 }
 
@@ -166,9 +180,11 @@
 }
 .div-comment-posts {
   display: flex;
+  min-width: 400px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: center;
   background: wheat;
   
 }
@@ -235,13 +251,14 @@
 }
 
 .Show-reply-button {
+  position: relative;
+  bottom: 10px;
   display: flex;
   background: transparent;
   font-weight: bolder;
   color: #dbca72;
   border: none;
-  align-self: end;
-  /* margin-right: 30px; */
+  align-self: flex-end;
   cursor: pointer;
 }
 
@@ -358,7 +375,6 @@
     font-weight: bolder;
     font-size: 17px;
     line-height: 20px;
-    margin-right: 45px;
     cursor: pointer;
   }
 

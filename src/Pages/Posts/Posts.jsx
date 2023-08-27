@@ -222,27 +222,28 @@ const Posts = () => {
                   <p className="Comment-section-p">{comment.content}</p>
                   <div className="Comment-reply-container">
                     {comment.replies.map((reply) => (
+                      <div className="reply_div">
+                      <label className="user_reply">{reply.user.name}</label>
                       <p className="Reply-section-p" key={reply._id}>
                         {reply.content}
-
-                        {reply.name}
-                      </p>
+                      </p>  
+                      </div>
                     ))}
                   </div>
                   {showReplyInput[comment._id] && (
                     <div className="div-post-btn">
-                      <textarea
+                      <textarea    //this div contains reply value and the submit button of the reply
                         type="text"
                         placeholder="Enter New Reply"
-                        className="Reply-input" // Updated line: Reply-input
-                        value={replyText}
+                        className="Reply-input" 
+                        value={replyText} //reply value
                         onChange={(event) =>
                           handleReplyChange(event, comment._id)
                         }
                       />
                       <button
-                        className="Post-reply-button" // Updated line:
-                        onClick={() => handleReplySubmit(comment._id)}
+                        className="Post-reply-button" 
+                        onClick={() => handleReplySubmit(comment._id)}  //reply submit action button
                       >
                         Reply
                       </button>
@@ -252,19 +253,19 @@ const Posts = () => {
                     className={`Show-reply-button ${
                       showReplyInput[comment._id] ? "hide-reply-button" : ""
                     }`}
-                    onClick={() =>
+                    onClick={() =>  //this button toggles the show, hide text area for posting the reply
                       setShowReplyInput({
                         ...showReplyInput,
                         [comment._id]: !showReplyInput[comment._id],
                       })
                     }
                   >
-                    {showReplyInput[comment._id] ? "Hide" : "Reply"}
-                  </button>
+                    {showReplyInput[comment._id] ? "Hide" : "Reply"} 
+                  </button> 
+                 {}
                 </div>
               ))}
             </div>
-          
         <div className="div-comment-posts">
               <textarea
                 type="text"
@@ -280,6 +281,7 @@ const Posts = () => {
                 Post
               </button>
             </div>
+          
           </div>
           
         ))}

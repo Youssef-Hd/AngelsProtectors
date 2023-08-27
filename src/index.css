@@ -19,3 +19,16 @@ code {
   font-family: josefin sans,source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body::-webkit-scrollbar-thumb {
+  background-color: #dbca72;
+  border: 4px solid #dbca72;
+  z-index: -1;
+  /* border-radius: 20px; */
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+  background: white;
+}
