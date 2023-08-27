@@ -93,7 +93,7 @@ const Posts = () => {
   const storedId = sessionStorage.getItem("id");
 
   const handleCommentSubmit = async (postId) => {
-    if (storedId) {
+    if (storedId && commentText.trim() !== '') {
       try {
         const response = await axios.post(
           "https://angelsprotectorss.onrender.com/api/comment",
@@ -103,7 +103,6 @@ const Posts = () => {
             user: storedId,
           }
         );
-        console.log("Comment posted:", response.data);
         allPosts();
         setShowComments({ ...showComments, [postId]: true }); // Initialize visibility for the new comment
         setCommentText(""); // Clear comment input after submitting
@@ -111,7 +110,7 @@ const Posts = () => {
         console.log("Error posting comment:", error);
       }
     } else {
-      alert("please login ");
+      alert("Make Sure You are logged in And That The Comment Field Is Valid");
     }
   };
   const handleReplyChange = (event) => {
@@ -119,7 +118,7 @@ const Posts = () => {
   };
 
   const handleReplySubmit = async (commentId) => {
-    if (storedId) {
+    if (storedId && replyText.trim() !== '') {
       try {
         const response = await axios.post(
           "https://angelsprotectorss.onrender.com/api/reply/postreply",
@@ -136,14 +135,12 @@ const Posts = () => {
       } catch (error) {
         console.log("Error posting reply:", error);
       }
-    } else alert("Please Login First");
-    console.log("comments??", posts);
+    } else alert("Make Sure You are logged in And That The Reply Field Is Valid");
+    // console.log("comments??", posts);
   };
-
   const toggleComments = () => {
     setShowAllComments(!showAllComments);
   };
-
   return (
     <div className="papito-div">
       <Nav />
@@ -206,7 +203,6 @@ const Posts = () => {
                 </h3>
               )}
             </div>
-
             <div className="comment-content-div">
               {post.comments.map((comment, index) => (
                 <div
@@ -220,30 +216,20 @@ const Posts = () => {
                     {comment.user.name}
                   </label>
                   <p className="Comment-section-p">{comment.content}</p>
-                  <div className="Comment-reply-container">
-                    {comment.replies.map((reply) => (
-                      <div className="reply_div">
-                      <label className="user_reply">{reply.user.name}</label>
-                      <p className="Reply-section-p" key={reply._id}>
-                        {reply.content}
-                      </p>  
-                      </div>
-                    ))}
-                  </div>
                   {showReplyInput[comment._id] && (
                     <div className="div-post-btn">
-                      <textarea    //this div contains reply value and the submit button of the reply
+                      <textarea //this div contains reply value and the submit button of the reply
                         type="text"
                         placeholder="Enter New Reply"
-                        className="Reply-input" 
+                        className="Reply-input"
                         value={replyText} //reply value
                         onChange={(event) =>
                           handleReplyChange(event, comment._id)
                         }
                       />
                       <button
-                        className="Post-reply-button" 
-                        onClick={() => handleReplySubmit(comment._id)}  //reply submit action button
+                        className="Post-reply-button"
+                        onClick={() => handleReplySubmit(comment._id)} //reply submit action button
                       >
                         Reply
                       </button>
@@ -253,20 +239,32 @@ const Posts = () => {
                     className={`Show-reply-button ${
                       showReplyInput[comment._id] ? "hide-reply-button" : ""
                     }`}
-                    onClick={() =>  //this button toggles the show, hide text area for posting the reply
+                    onClick={() =>
+                      //this button toggles the show, hide text area for posting the reply
                       setShowReplyInput({
                         ...showReplyInput,
                         [comment._id]: !showReplyInput[comment._id],
                       })
                     }
                   >
-                    {showReplyInput[comment._id] ? "Hide" : "Reply"} 
-                  </button> 
-                 {}
+                    {showReplyInput[comment._id] ? "Hide" : "Reply"}
+                  </button>
+                  <div className="Comment-reply-container">
+                    {comment.replies.map((reply) => (
+                      <div className="reply_div">
+                        <label className="user_reply">{reply.user.name}</label>
+                        
+                        <p onClick={handleReplySubmit} className="Reply-section-p" key={reply._id}>
+                          {reply.content}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
+        
             </div>
-        <div className="div-comment-posts">
+            <div className="div-comment-posts">
               <textarea
                 type="text"
                 placeholder="Comment Here"
@@ -274,6 +272,9 @@ const Posts = () => {
                 value={commentText}
                 onChange={handleCommentChange}
               />
+                    {/* <button onClick={newComment.trim() !== '' ? handleSubmit : undefined}>
+        Post Comment
+      </button> */}
               <button
                 className="Post-comment-button"
                 onClick={() => handleCommentSubmit(post._id)}
@@ -281,9 +282,7 @@ const Posts = () => {
                 Post
               </button>
             </div>
-          
           </div>
-          
         ))}
       </div>
       <br />
