@@ -90,8 +90,7 @@ const Login = () => {
         <button className="register-btn-login">Register Account</button></Link>
       </div>
       {errorMessage && <p>{errorMessage}</p>}
-
-      <br />
+    
       <Footer />
     </div>
   );

@@ -7,6 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 import { BsArrowUpCircleFill } from "react-icons/bs";
 import { BeatLoader } from "react-spinners";
+import { toast } from "react-toastify";
 import "./Posts.css";
 
 const Posts = () => {
@@ -16,7 +17,8 @@ const Posts = () => {
   const [replyText, setReplyText] = useState(""); // Added state for reply input
   const [showReplyInput, setShowReplyInput] = useState({});
   const [showComments, setShowComments] = useState({});
-  const [showAllComments, setShowAllComments] = useState(true); // New state for showing all comments
+  const [showAllComments, setShowAllComments] = useState(false); // New state for showing all comments
+  const [showReplies, setShowReplies] = useState(false); // New state for showing all replies
   const [loading, setLoading] = useState(true);
 
   const allPosts = async () => {
@@ -35,7 +37,7 @@ const Posts = () => {
             `https://angelsprotectorss.onrender.com/api/comment/${post._id}`
           );
           const commentsData = commentsResponse.data;
-          console.log("commentsssdata", commentsData);
+          // console.log("commentsssdata", commentsData);
 
           const commentsWithReplies = await Promise.all(
             commentsData.map(async (comment) => {
@@ -93,7 +95,7 @@ const Posts = () => {
   const storedId = sessionStorage.getItem("id");
 
   const handleCommentSubmit = async (postId) => {
-    if (storedId && commentText.trim() !== '') {
+    if (storedId && commentText.trim() !== "") {
       try {
         const response = await axios.post(
           "https://angelsprotectorss.onrender.com/api/comment",
@@ -106,11 +108,14 @@ const Posts = () => {
         allPosts();
         setShowComments({ ...showComments, [postId]: true }); // Initialize visibility for the new comment
         setCommentText(""); // Clear comment input after submitting
+        toast.success("success");
       } catch (error) {
         console.log("Error posting comment:", error);
       }
     } else {
-      alert("Make Sure You are logged in And That The Comment Field Is Valid");
+      toast.error(
+        "Make sure you are logged in and that the comment field is valid"
+      );
     }
   };
   const handleReplyChange = (event) => {
@@ -118,7 +123,7 @@ const Posts = () => {
   };
 
   const handleReplySubmit = async (commentId) => {
-    if (storedId && replyText.trim() !== '') {
+    if (storedId && replyText.trim() !== "") {
       try {
         const response = await axios.post(
           "https://angelsprotectorss.onrender.com/api/reply/postreply",
@@ -131,11 +136,15 @@ const Posts = () => {
         console.log("Reply posted:", response.data);
         allPosts();
         setReplyText("");
+        toast.success("success");
         setShowReplyInput({ ...showReplyInput, [commentId]: false }); // Hide reply input after submitting
       } catch (error) {
         console.log("Error posting reply:", error);
       }
-    } else alert("Make Sure You are logged in And That The Reply Field Is Valid");
+    } else
+      toast.error(
+        "Make sure you are logged in and that the reply field is valid"
+      );
     // console.log("comments??", posts);
   };
   const toggleComments = () => {
@@ -145,7 +154,7 @@ const Posts = () => {
     <div className="papito-div">
       <Nav />
       <div className="Posts-div">
-        {/* <h1 className="h1-angels">Angels Protector</h1> */}
+        <h1 className="h1-angels">Angels Protector</h1>
         {posts.map((post) => (
           <div className="div-2" key={post._id}>
             <div className="image-wrapper">
@@ -192,7 +201,7 @@ const Posts = () => {
                   {showAllComments ? (
                     <BsArrowDownCircleFill
                       className="icon-arrow-down"
-                      size={20}
+                      size={30}
                     />
                   ) : (
                     <BsArrowUpCircleFill
@@ -251,10 +260,19 @@ const Posts = () => {
                   </button>
                   <div className="Comment-reply-container">
                     {comment.replies.map((reply) => (
-                      <div className="reply_div">
+                      
+                      <div
+                        className={`reply_div ${
+                          showReplies[reply._id] ? "hide-replies" : ""
+                        }`}
+                      >
                         <label className="user_reply">{reply.user.name}</label>
-                        
-                        <p onClick={handleReplySubmit} className="Reply-section-p" key={reply._id}>
+                        <p
+                          onClick={handleReplySubmit}
+                          className="reply-section-p"
+                          key={reply._id}
+                        >
+                          {reply.length >= 0 ? 'displayf' :  'reew'}
                           {reply.content}
                         </p>
                       </div>
@@ -262,7 +280,6 @@ const Posts = () => {
                   </div>
                 </div>
               ))}
-        
             </div>
             <div className="div-comment-posts">
               <textarea
@@ -272,11 +289,11 @@ const Posts = () => {
                 value={commentText}
                 onChange={handleCommentChange}
               />
-                    {/* <button onClick={newComment.trim() !== '' ? handleSubmit : undefined}>
+              {/* <button onClick={newComment.trim() !== '' ? handleSubmit : undefined}>
         Post Comment
       </button> */}
               <button
-                className="Post-comment-button"
+                className="post-comment-button"
                 onClick={() => handleCommentSubmit(post._id)}
               >
                 Post
