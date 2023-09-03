@@ -43,8 +43,8 @@ nav {
 }
 
 .nav-link :hover {
-  background-color: rgba(0, 0, 0, 0.075);
-  color: aliceblue;
+  /* background-color: rgba(0, 0, 0, 0.075); */
+  /* color: aliceblue; */
 }
 
 .H1-Header {

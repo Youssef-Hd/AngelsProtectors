@@ -6,6 +6,8 @@ import logo from "../../assets/logo.png";
 import Footer from "../../components/Footer/Footer";
 import "./LocationPosts.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 const containerStyle = {
   width: "600px",
@@ -50,6 +52,7 @@ const LocationPosts = () => {
 
   useEffect(() => {
     if (!storedId) {
+      toast.error('Please login first')
       navigate("/login");
     }
   });
@@ -265,7 +268,6 @@ const LocationPosts = () => {
                   Save Map
                 </button>
               </div>
-              <br />
               <label className="label">
                 Kindly Save Your Location And attach It Below
               </label>
@@ -277,13 +279,13 @@ const LocationPosts = () => {
                   onChange={handleFileChange}
                 />
               </label>
-              <br />
-              <br />
+              <div className="div_submit-btn">
               <label className="submit-btn-label">
                 <button className="submit-btn" onClick={handleFormSubmit}>
                   Submit
                 </button>
               </label>
+              </div>
             </div>
           )}
           <div className="footer-onduty">

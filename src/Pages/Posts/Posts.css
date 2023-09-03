@@ -81,6 +81,10 @@
   /* background-color: white; */
 }
 
+.hidden-reply{
+  display: none;
+}
+
 .reply-section-p {
   display: flex;
   justify-content: flex-start;
@@ -101,11 +105,22 @@
   /* background: #000; */
 }
 
+.displayf{
+  background-color: yellow;
+}
 
 
-.hide-replies {
+
+.hide-replies-btn{
   display: none;
 }
+
+.replies_show-btn{
+  display: flex;
+}
+/* .show-replies{
+  display: flex;
+} */
 
 .user_reply {
   position: relative;
@@ -268,12 +283,13 @@
   align-items: center;
   align-self: center;
   width: 250px;
-  justify-content: space-between;
 }
 
 .icon-arrow-down {
   color: #dbca72;
   cursor: pointer;
+  padding-left: 10px;
+  transition: 5.9 ease-in-out;
 }
 
 .hide-reply-button {

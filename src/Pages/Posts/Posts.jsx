@@ -17,8 +17,8 @@ const Posts = () => {
   const [replyText, setReplyText] = useState(""); // Added state for reply input
   const [showReplyInput, setShowReplyInput] = useState({});
   const [showComments, setShowComments] = useState({});
-  const [showAllComments, setShowAllComments] = useState(false); // New state for showing all comments
-  const [showReplies, setShowReplies] = useState(false); // New state for showing all replies
+  const [showAllComments, setShowAllComments] = useState({}); // New state for showing all comments
+  const [showReplies, setShowReplies] = useState({}); // New state for showing all replies
   const [loading, setLoading] = useState(true);
 
   const allPosts = async () => {
@@ -45,6 +45,7 @@ const Posts = () => {
                 `https://angelsprotectorss.onrender.com/api/reply/${comment._id}/replies`
               );
               const repliesData = repliesResponse.data;
+              console.log('replies', repliesData)
 
               // NEW CODE: Mapping over repliesData
               const repliesWithMappedData = repliesData.map((reply) => {
@@ -147,8 +148,15 @@ const Posts = () => {
       );
     // console.log("comments??", posts);
   };
-  const toggleComments = () => {
-    setShowAllComments(!showAllComments);
+  const toggleComments = (postId) => {
+    setShowAllComments({
+      ...showAllComments,
+      [postId]: !showAllComments[postId],
+    });
+  };
+
+  const toggleReplies = (commentId) => {
+    setShowReplies({ ...showReplies, [commentId]: !showReplies[commentId] });
   };
   return (
     <div className="papito-div">
@@ -197,14 +205,16 @@ const Posts = () => {
                   className="comments-word"
                   onClick={() => toggleComments(post._id)}
                 >
-                  Display All Comments
-                  {showAllComments ? (
-                    <BsArrowDownCircleFill
+                  {showAllComments[post._id]
+                    ? "Hide Comments"
+                    : "Display comments"}
+                  {showAllComments[post._id] ? (
+                    <BsArrowUpCircleFill
                       className="icon-arrow-down"
                       size={30}
                     />
                   ) : (
-                    <BsArrowUpCircleFill
+                    <BsArrowDownCircleFill
                       className="icon-arrow-down"
                       size={30}
                     />
@@ -216,7 +226,9 @@ const Posts = () => {
               {post.comments.map((comment, index) => (
                 <div
                   className={`comment-name-div-posts ${
-                    !showAllComments && index >= 1 ? "hidden-comment" : ""
+                    !showAllComments[post._id] && index >= 1
+                      ? "hidden-comment"
+                      : ""
                   }`}
                   key={comment._id}
                 >
@@ -258,26 +270,60 @@ const Posts = () => {
                   >
                     {showReplyInput[comment._id] ? "Hide" : "Reply"}
                   </button>
-                  <div className="Comment-reply-container">
-                    {comment.replies.map((reply) => (
-                      
+
+                  {/* {comment.replies.map((reply, index) => (
+                    <button
+                      className={`${
+                        showReplies[comment._id]
+                          ? "hide-replies"
+                          : "show-replies"
+                      }`}
+                      onClick={() => toggleReplies(comment._id)}
+                    >
+                      btn
+                    </button>
+                  ))} */}
+
+                  {/* Hide replies if more than 1 */}
+                  {/* {post.comments.map((comment, index) => (
+                <div
+                  className={`comment-name-div-posts ${
+                    !showAllComments[post._id] && index >= 1
+                      ? "hidden-comment"
+                      : ""
+                  }`}
+                  key={comment._id}
+                > */}
+
+                  {/* {comment.replies.length > 0 && ( */}
+                    <div className="Comment-reply-container">
                       <div
                         className={`reply_div ${
-                          showReplies[reply._id] ? "hide-replies" : ""
+                          !showReplies[comment._id] && index >= 1
+                            ? "hidden-reply"
+                            : ""
                         }`}
+                        key={comment.replies._id}
                       >
-                        <label className="user_reply">{reply.user.name}</label>
+                        <button
+                          className=""
+                          onClick={() => toggleReplies(comment._id)}
+                        >
+                          btn
+                        </button>
+                        <label className="user_reply">
+                          {comment.replies.content}
+                        </label>
                         <p
                           onClick={handleReplySubmit}
                           className="reply-section-p"
-                          key={reply._id}
+                          // key={comment.replies._id}
                         >
-                          {reply.length >= 0 ? 'displayf' :  'reew'}
-                          {reply.content}
+                          {comment.content}
                         </p>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  {/* )} */}
                 </div>
               ))}
             </div>
@@ -289,9 +335,6 @@ const Posts = () => {
                 value={commentText}
                 onChange={handleCommentChange}
               />
-              {/* <button onClick={newComment.trim() !== '' ? handleSubmit : undefined}>
-        Post Comment
-      </button> */}
               <button
                 className="post-comment-button"
                 onClick={() => handleCommentSubmit(post._id)}
@@ -302,8 +345,6 @@ const Posts = () => {
           </div>
         ))}
       </div>
-      <br />
-      <br />
       <Footer />
     </div>
   );

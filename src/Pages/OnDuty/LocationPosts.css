@@ -196,25 +196,30 @@
   border: 0px solid #000000;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
   align-items: center;
-  margin-bottom: 20px;
+  align-self: center;
 }
 
 .submit-btn-label {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 30px;
+  /* justify-content: center; */
+  align-self: flex-end;
+  background: red;
 }
 
+
+.div_submit-btn{
+  background-color: sandybrown;
+  height: 10vh;
+  display: flex;
+}
 .input-file-map {
   box-sizing: border-box;
   width: 200px;
@@ -234,6 +239,7 @@
 .input-file-map ::input {
   background-color: blue;
 }
+
 
 .footer-onduty{
   display: flex;
