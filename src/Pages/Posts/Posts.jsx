@@ -6,12 +6,14 @@ import { format } from "date-fns";
 import { CgProfile } from "react-icons/cg";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 import { BsArrowUpCircleFill } from "react-icons/bs";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { RiArrowDropUpLine } from "react-icons/ri";
 import { BeatLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import "./Posts.css";
 
 const Posts = () => {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState({});
   const [posts, setPosts] = useState([]);
   const [commentText, setCommentText] = useState(""); // Added state for comment input
   const [replyText, setReplyText] = useState(""); // Added state for reply input
@@ -37,7 +39,7 @@ const Posts = () => {
             `https://angelsprotectorss.onrender.com/api/comment/${post._id}`
           );
           const commentsData = commentsResponse.data;
-          // console.log("commentsssdata", commentsData);
+          console.log("commentsssdata", commentsData);
 
           const commentsWithReplies = await Promise.all(
             commentsData.map(async (comment) => {
@@ -45,7 +47,7 @@ const Posts = () => {
                 `https://angelsprotectorss.onrender.com/api/reply/${comment._id}/replies`
               );
               const repliesData = repliesResponse.data;
-              console.log('replies', repliesData)
+              console.log("replies", repliesData);
 
               // NEW CODE: Mapping over repliesData
               const repliesWithMappedData = repliesData.map((reply) => {
@@ -78,10 +80,6 @@ const Posts = () => {
     allPosts();
   }, []);
 
-  const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription);
-  };
-
   const truncateDescription = (text, limit) => {
     const words = text.split(" ");
     if (words.length > limit) {
@@ -90,8 +88,12 @@ const Posts = () => {
     return text;
   };
 
-  const handleCommentChange = (event) => {
-    setCommentText(event.target.value);
+  const handleCommentChange = (e, postId) => {
+    const commentValue = e.target.value;
+    setCommentText((prevCommentText) => ({
+      ...prevCommentText,
+      [postId]: commentValue,
+    }));
   };
   const storedId = sessionStorage.getItem("id");
 
@@ -154,9 +156,16 @@ const Posts = () => {
       [postId]: !showAllComments[postId],
     });
   };
+  const toggleDescription = (postId) => {
+    setShowFullDescription({
+      ...showFullDescription,
+      [postId]: !showFullDescription[postId],
+    });
+  };
 
   const toggleReplies = (commentId) => {
     setShowReplies({ ...showReplies, [commentId]: !showReplies[commentId] });
+    console.log("togglereplies", showReplies);
   };
   return (
     <div className="papito-div">
@@ -183,15 +192,15 @@ const Posts = () => {
                 />
               )}
               <div className="description-posts">
-                {showFullDescription
+                {showFullDescription[post._id]
                   ? post.description
                   : truncateDescription(post.description, 10)}
                 {post.description.split(" ").length > 10 && (
                   <button
                     className="see-more-button"
-                    onClick={toggleDescription}
+                    onClick={() => toggleDescription(post._id)}
                   >
-                    {showFullDescription ? "See Less" : "See More"}
+                    {showFullDescription[post._id] ? "See Less" : "See More"}
                   </button>
                 )}
               </div>
@@ -252,7 +261,7 @@ const Posts = () => {
                         className="Post-reply-button"
                         onClick={() => handleReplySubmit(comment._id)} //reply submit action button
                       >
-                        Reply
+                        Post
                       </button>
                     </div>
                   )}
@@ -271,59 +280,38 @@ const Posts = () => {
                     {showReplyInput[comment._id] ? "Hide" : "Reply"}
                   </button>
 
-                  {/* {comment.replies.map((reply, index) => (
-                    <button
-                      className={`${
-                        showReplies[comment._id]
-                          ? "hide-replies"
-                          : "show-replies"
-                      }`}
-                      onClick={() => toggleReplies(comment._id)}
-                    >
-                      btn
-                    </button>
-                  ))} */}
-
-                  {/* Hide replies if more than 1 */}
-                  {/* {post.comments.map((comment, index) => (
-                <div
-                  className={`comment-name-div-posts ${
-                    !showAllComments[post._id] && index >= 1
-                      ? "hidden-comment"
-                      : ""
-                  }`}
-                  key={comment._id}
-                > */}
-
-                  {/* {comment.replies.length > 0 && ( */}
+                  {comment.replies.length > 0 && (
                     <div className="Comment-reply-container">
-                      <div
-                        className={`reply_div ${
-                          !showReplies[comment._id] && index >= 1
-                            ? "hidden-reply"
-                            : ""
-                        }`}
-                        key={comment.replies._id}
+                      <button
+                        className="show-replies"
+                        onClick={() => toggleReplies(comment._id)}
                       >
-                        <button
-                          className=""
-                          onClick={() => toggleReplies(comment._id)}
+                        {showReplies[comment._id]
+                          ? "Hide"
+                          : "Replies"}
+
+                        {showReplies[comment._id] ? (
+                          <RiArrowDropUpLine className="icon_replies-dropdown" />
+                        ) : (
+                          <RiArrowDropDownLine className="icon_replies-dropdown" size={20} />
+                        )}
+                      </button>
+
+                      {comment.replies.map((reply, index) => (
+                        <div
+                          className={` ${
+                            !showReplies[comment._id] ? "hidden-reply" : ""
+                          }`}
+                          key={reply._id}
                         >
-                          btn
-                        </button>
-                        <label className="user_reply">
-                          {comment.replies.content}
-                        </label>
-                        <p
-                          onClick={handleReplySubmit}
-                          className="reply-section-p"
-                          // key={comment.replies._id}
-                        >
-                          {comment.content}
-                        </p>
-                      </div>
+                          <label className="user_reply">
+                            {reply.user.name}
+                          </label>
+                          <p className="reply-section-p">{reply.content}</p>
+                        </div>
+                      ))}
                     </div>
-                  {/* )} */}
+                  )}
                 </div>
               ))}
             </div>
@@ -332,8 +320,8 @@ const Posts = () => {
                 type="text"
                 placeholder="Comment Here"
                 className="Comment-input"
-                value={commentText}
-                onChange={handleCommentChange}
+                value={commentText[post._id] || ""}
+                onChange={(e) => handleCommentChange(e, post._id)}
               />
               <button
                 className="post-comment-button"
