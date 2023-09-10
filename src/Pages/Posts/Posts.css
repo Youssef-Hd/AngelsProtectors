@@ -4,6 +4,7 @@
 }
 
 .papito-div {
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #f0f1f3;
@@ -62,8 +63,9 @@
   padding: 10px;
 }
 
-/* .Posts-div {
-} */
+.Posts-div {
+  width: 100%;
+}
 
 .see-more-button {
   background: none;
@@ -83,18 +85,19 @@
 
 .show-replies{
   position: relative;
-  right: 2px;
+  left: 2px;
   bottom: 31.8px;
-  width: 120px;
-  background: salmon;
+  max-width: 70px;
+  background: #dbca72;
   border: none;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .icon_replies-dropdown{
-  color: #dbca72;
+  color: black;
   display: flex;
 }
 
@@ -130,9 +133,12 @@
 }
 
 .user_reply {
+  display: flex;
+  align-items: flex-end;
+  align-content: center;
   position: relative;
   font-size: small;
-  font-weight: bold;
+  /* font-weight: bold; */
   top: 15px;
 }
 
@@ -142,6 +148,25 @@
   bottom: 40px;
   justify-content: flex-end;
   font-size: x-small;
+}
+
+.div-comment-posts {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: center;
+}
+.Comment-input {
+  width: 10vw;
+  height: 4vw;
+  border: 1px solid #dbca72;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 10px;
 }
 
 .Comment-input::placeholder {
@@ -154,25 +179,15 @@
   padding: 10px;
 }
 
-.Comment-input {
-  width: 20vw;
-  border: 1px solid #dbca72;
-  border-radius: 8px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  padding: 10px;
-}
 
 .post-comment-button {
-  /* box-sizing: border-box; */
   width: 60px;
   height: 30px;
   border: none;
   background: transparent;
   color: #dbca72;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-self: flex-end;
   font-family: "Josefin Sans";
   font-weight: bolder;
@@ -196,15 +211,7 @@
   font-size: 18px;
   top: 15px;
 }
-.div-comment-posts {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  align-self: center;
-  /* background: wheat; */
-  min-height: 2.5rem;
-}
+
 .Comment-section-p {
   min-height: 2.5rem;
   height: 10vh;
@@ -317,6 +324,8 @@
 }
 
 .icon-profile {
+  display: flex;
+  align-self: center;
   text-align: center;
   color: #dbca72;
 }
@@ -337,6 +346,9 @@
 }
 
 @media (max-width: 767px) {
+  /* .div-2{
+    width: 100%;
+  } */
   .date-stamp {
     /* @media  */
     display: flex;

@@ -11,11 +11,12 @@ import { RiArrowDropUpLine } from "react-icons/ri";
 import { BeatLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import "./Posts.css";
+import { responsive } from "@cloudinary/react";
 
 const Posts = () => {
   const [showFullDescription, setShowFullDescription] = useState({});
   const [posts, setPosts] = useState([]);
-  const [commentText, setCommentText] = useState(""); // Added state for comment input
+  const [commentText, setCommentText] = useState({ comment: "" }); // Added state for comment input
   const [replyText, setReplyText] = useState(""); // Added state for reply input
   const [showReplyInput, setShowReplyInput] = useState({});
   const [showComments, setShowComments] = useState({});
@@ -88,32 +89,32 @@ const Posts = () => {
     return text;
   };
 
-  const handleCommentChange = (e, postId) => {
-    const commentValue = e.target.value;
+  const handleCommentChange = (e) => {
+    const { name, value } = e.target;
     setCommentText((prevCommentText) => ({
       ...prevCommentText,
-      [postId]: commentValue,
+      [name]: value,
     }));
   };
   const storedId = sessionStorage.getItem("id");
 
-  const handleCommentSubmit = async (postId) => {
-    if (storedId && commentText.trim() !== "") {
+  const handleCommentSubmit = async (e, postId) => {
+    console.log(postId);
+    if (storedId && commentText.comment.trim() !== "") {
+      console.log("comment", postId);
+
       try {
-        const response = await axios.post(
-          "https://angelsprotectorss.onrender.com/api/comment",
-          {
-            postId,
-            content: commentText,
-            user: storedId,
-          }
-        );
+        await axios.post("https://angelsprotectorss.onrender.com/api/comment", {
+          postId,
+          content: commentText.comment,
+          user: storedId,
+        });
         allPosts();
         setShowComments({ ...showComments, [postId]: true }); // Initialize visibility for the new comment
         setCommentText(""); // Clear comment input after submitting
         toast.success("success");
       } catch (error) {
-        console.log("Error posting comment:", error);
+        toast.error("Error posting comment:", error);
       }
     } else {
       toast.error(
@@ -121,6 +122,7 @@ const Posts = () => {
       );
     }
   };
+
   const handleReplyChange = (event) => {
     setReplyText(event.target.value);
   };
@@ -216,7 +218,7 @@ const Posts = () => {
                 >
                   {showAllComments[post._id]
                     ? "Hide Comments"
-                    : "Display comments"}
+                    : "Display Comments"}
                   {showAllComments[post._id] ? (
                     <BsArrowUpCircleFill
                       className="icon-arrow-down"
@@ -286,14 +288,15 @@ const Posts = () => {
                         className="show-replies"
                         onClick={() => toggleReplies(comment._id)}
                       >
-                        {showReplies[comment._id]
-                          ? "Hide"
-                          : "Replies"}
+                        {showReplies[comment._id] ? "Hide" : "Replies"}
 
                         {showReplies[comment._id] ? (
                           <RiArrowDropUpLine className="icon_replies-dropdown" />
                         ) : (
-                          <RiArrowDropDownLine className="icon_replies-dropdown" size={20} />
+                          <RiArrowDropDownLine
+                            className="icon_replies-dropdown"
+                            size={20}
+                          />
                         )}
                       </button>
 
@@ -305,6 +308,7 @@ const Posts = () => {
                           key={reply._id}
                         >
                           <label className="user_reply">
+                           <CgProfile className="icon-profile" size={20} />
                             {reply.user.name}
                           </label>
                           <p className="reply-section-p">{reply.content}</p>
@@ -318,14 +322,15 @@ const Posts = () => {
             <div className="div-comment-posts">
               <textarea
                 type="text"
+                name="comment"
                 placeholder="Comment Here"
                 className="Comment-input"
-                value={commentText[post._id] || ""}
-                onChange={(e) => handleCommentChange(e, post._id)}
+                value={commentText.comment}
+                onChange={handleCommentChange}
               />
               <button
                 className="post-comment-button"
-                onClick={() => handleCommentSubmit(post._id)}
+                onClick={(e) => handleCommentSubmit(e, post._id)}
               >
                 Post
               </button>

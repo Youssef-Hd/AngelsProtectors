@@ -8,7 +8,6 @@ import "./LocationPosts.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const containerStyle = {
   width: "600px",
   height: "400px",
@@ -52,7 +51,7 @@ const LocationPosts = () => {
 
   useEffect(() => {
     if (!storedId) {
-      toast.error('Please login first')
+      toast.error("Please login first");
       navigate("/login");
     }
   });
@@ -187,7 +186,7 @@ const LocationPosts = () => {
         encType="multipart/form-data"
       >
         {" "}
-        <label className="label">Which City</label>
+        <label className="label--">Which City</label>
         <input
           className="onduty-input"
           type="text"
@@ -207,7 +206,7 @@ const LocationPosts = () => {
         </label>
         <br />
         <br />
-        <label className="label">Description</label>
+        <label className="label--">Description</label>
         <input
           placeholder="Kindly fill a detailed description of the case."
           className="description-textarea"
@@ -256,8 +255,10 @@ const LocationPosts = () => {
           </LoadScript>
 
           {showLocation && (
-            <div>
               <div className="save-map-div">
+                <div className="saving_map-btn">
+                <p className="label--">
+                  Kindly Save Your Location And attach It Below
                 <button
                   className="save-map-button"
                   onClick={(e) => {
@@ -265,28 +266,25 @@ const LocationPosts = () => {
                     handleSaveMap();
                   }}
                 >
-                  Save Map
+                  Save
                 </button>
+                </p>
+
+                </div>
+                <label className="label-file-map">
+                  <input
+                    className="input-file-map"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                  />
+                </label>
+                <div className="div_submit-btn">
+                  <button className="submit-btn" onClick={handleFormSubmit}>
+                    Submit
+                  </button>
+                </div>
               </div>
-              <label className="label">
-                Kindly Save Your Location And attach It Below
-              </label>
-              <label className="label-file-map">
-                <input
-                  className="input-file-map"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                />
-              </label>
-              <div className="div_submit-btn">
-              <label className="submit-btn-label">
-                <button className="submit-btn" onClick={handleFormSubmit}>
-                  Submit
-                </button>
-              </label>
-              </div>
-            </div>
           )}
           <div className="footer-onduty">
             <Footer />

@@ -24,8 +24,6 @@
   align-self: center;
 }
 
-
-
 .onduty-input {
   box-sizing: border-box;
   width: 294px;
@@ -57,7 +55,7 @@
   width: 50%;
 }
 
-.input-file::input{
+.input-file::input {
   background-color: red;
 }
 
@@ -100,10 +98,11 @@
   width: 50%;
 }
 
-.label {
+.label-- {
+  /* margin-top: 10px; */
   text-align: center;
   display: flex;
-  justify-content: center;
+  align-self: center;
 }
 
 .label-file {
@@ -164,61 +163,65 @@
   justify-content: center;
 }
 
+.saving_map-btn{
+  background-color:salmon;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  max-width: 500px;
+  min-width: 600px;
+}
+
 .save-map-button {
   box-sizing: border-box;
-  width: 140px;
-  height: 40px;
+  width: 50px;
+  height: 30px;
   border: 0px solid #000000;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
-  margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-
+  align-items: center;
+  align-content: flex-end;
+  align-self: flex-end;
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  align-items: center;
-  margin-bottom: 20px;
+  font-size: 15px;
 }
+
 
 .save-map-div {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.div_submit-btn {
+  display: flex;
+  flex-direction: row;  
+  justify-content: flex-end;
+  max-width: 600px;
+  min-width: 600px;
+  height: 10vh;
 }
 
 .submit-btn {
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
   width: 140px;
   height: 40px;
   border: 0px solid #000000;
   border-radius: 8px;
   background: rgba(219, 202, 114, 0.8);
-  display: flex;
-  justify-content: center;
-  font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
-  align-items: center;
-  align-self: center;
-}
-
-.submit-btn-label {
-  display: flex;
-  /* justify-content: center; */
-  align-self: flex-end;
-  background: red;
-}
-
-
-.div_submit-btn{
-  background-color: sandybrown;
-  height: 10vh;
-  display: flex;
+  font-family: "Josefin Sans";
 }
 .input-file-map {
   box-sizing: border-box;
@@ -240,13 +243,11 @@
   background-color: blue;
 }
 
-
-.footer-onduty{
+.footer-onduty {
   display: flex;
   height: 20vh;
   align-items: flex-end;
 }
-
 
 .label-file-map {
   /* background-color: red; */

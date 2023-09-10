@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopesBulk } from "@fortawesome/free-solid-svg-icons";
 import { BeatLoader } from "react-spinners";
 import { useContext } from "react";
-
 import ThemeContext from "../../ThemeContext";
 
 const Home = () => {
@@ -94,7 +93,7 @@ const Home = () => {
           />
         </Link>
       </div>
-      <div className="border-mid-last"></div>
+      {/* <div className="border-mid-last"></div> */}
 
       <br />
       <br />
