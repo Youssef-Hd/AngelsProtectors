@@ -12,8 +12,8 @@
   width: 40rem;
   font-family: "Josefin Sans";
   font-style: normal;
-  font-weight: 550;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 25px;
   line-height: 25px;
   height: 2rem;
 }
@@ -34,10 +34,15 @@
 .Link-home {
   color: white !important;
   text-decoration: none !important;
+  justify-content: center;
+  height: 5rem;
+  align-items: flex-end;
+  display: flex;
+  width: 20rem;
 }
 
 .btn-home {
-  width: 140px;
+  width: 180px;
   height: 40px;
   border: none;
   color: black;
@@ -47,15 +52,12 @@
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  margin-left: 20px;
-  margin-top: 3rem;
 }
 
 .experience-h1 {
   font-size: 300px;
   z-index: 20;
   text-align: center;
-  background: red;
   margin-left: 80px;
 }
 
@@ -80,8 +82,15 @@
 
 .border-mid {
   width: 70%;
-  margin-left: 15%;
   background-color: #dbca72;
+  border-radius: 10px;
+  height: 0.5vh;
+}
+
+.border-mid-second{
+  width: 70%;
+  margin-left: 15%;
+  background-color:#dbca72;
   border-radius: 10px;
   height: 0.5vh;
 }
@@ -104,7 +113,7 @@
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .btn-onduty-home {
@@ -121,13 +130,14 @@
 }
 
 .sos-label {
-  width: 300px;
+  /* width: 300px; */
+  /* width: 40rem; */
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 550;
-  font-size: 15px;
+  font-size: 25px;
   line-height: 25px;
-  text-align: center;
+  height: 2rem;
 }
 
 .div-sos {
@@ -177,11 +187,11 @@
 }
 
 .span-home-contact {
-  width: 100px;
+  width: 150px;
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 550;
-  font-size: 15px;
+  font-size: 25px;
   line-height: 25px;
 }
 
@@ -218,6 +228,7 @@ a {
     background-position-y: center;
   }
 
+  /* @media */
   .p-home {
     width: 250px;
     height: auto;
@@ -227,4 +238,58 @@ a {
     font-size: 15px;
     line-height: 25px;
   }
+
+  /* @Media */
+  .btn-home {
+    width: 100px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 550;
+    font-size: 15px;
+    line-height: 25px;
+
+  }
+
+  /* @Media */
+  .sos-label {
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 550;
+    font-size: 15px;
+    line-height: 25px;
+    width: 104rem;
+  }
+
+  /* @Media */
+  .label-logo {
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 550;
+    font-size: 15px;
+    line-height: 25px;
+  }
+/* @media */
+.Link-home {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+/* @Media */
+.btn-onduty-home {
+  width: 100px;
+}
+
+/* @media */
+.btn-sos-homepage{
+  width: 100px;
+}
+
+.span-home-contact {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 550;
+  font-size: 15px;
+  line-height: 25px;
+}
 }

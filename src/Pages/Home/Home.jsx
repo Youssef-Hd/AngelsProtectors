@@ -70,11 +70,11 @@ const Home = () => {
       </div>
       <br />
 
-      <div className="border-mid"></div>
+      <div className="border-mid-second"></div>
       <div className="div-sos">
         <label className="sos-label">
-          Looking for Somewhere To Adopt Or Directly Report A Case? <br /> Check
-          Out Our SOS Page Now!
+          Looking for somewhere to adopt or directly report a case? check
+          out our SOS page now!
         </label>
         <Link to="/sos">
           <button className="btn-sos-homepage">SOS</button>
