@@ -1,20 +1,12 @@
 a {
   color: black !important /* set your desired color */; /* Set the color for both unvisited and visited links */
   text-decoration: none !important; /* Remove underline on all links */
-  /* text-align: center; */
   color: #000 !important;
-}
-
-a:hover {
-  /* set your desired color */ /* Set the color for focused and hovered links */
-  /* Additional styles if needed */
 }
 
 button {
   cursor: pointer;
 }
-
-
 
 .span-location {
   display: block;
@@ -31,7 +23,6 @@ button {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  /* height: 30vh; */
   justify-content: center;
   margin-top: 30px;
 }

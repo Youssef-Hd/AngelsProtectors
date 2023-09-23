@@ -21,7 +21,6 @@
   transition: all 0.3s linear;
 }
 
-
 @media screen and (max-width: 936px) {
   .hamburger {
     width: 2rem;

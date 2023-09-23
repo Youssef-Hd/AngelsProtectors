@@ -84,7 +84,6 @@ const LocationPosts = () => {
 
       // Assuming the response from the server contains the URL for the map image
       const mapImageId = response.data.data._id;
-      console.log("MAPIMAGE", response);
       return mapImageId;
     } catch (error) {
       console.error(error);
@@ -173,104 +172,103 @@ const LocationPosts = () => {
 
   return (
     <div className="papa-div">
-      <Nav />
-      <img className="logo-onduty" src={logo} alt="main-logo" />
-      <p className="p-onduty">
-        By visiting this page, you have the opportunity to make a meaningful
-        difference in the lives of stray dogs and become a protector of these
-        vulnerable creatures.
-      </p>
-      <form
-        ref={selectedInfo}
-        className="contact-formmm"
-        encType="multipart/form-data"
-      >
-        {" "}
-        <label className="label--">Which City</label>
-        <input
-          className="onduty-input"
-          type="text"
-          value={newInfo.location}
-          onChange={(e) => setNewInfo({ ...newInfo, location: e.target.value })}
-          placeholder="Enter location"
-        />
-        <br />
-        <label className="label-file">
-          Share Images
+      <div className="main_div-onduty">
+        <Nav />
+        <img className="logo-onduty" src={logo} alt="main-logo" />
+        <p className="p-onduty">
+          By visiting this page, you have the opportunity to make a meaningful
+          difference in the lives of stray dogs and become a protector of these
+          vulnerable creatures.
+        </p>
+        <form
+          ref={selectedInfo}
+          className="contact-formmm"
+          encType="multipart/form-data"
+        >
+          <label className="label--">Which City</label>
           <input
-            className="input-file"
-            type="file"
-            multiple
-            onChange={(e) => handleImages(e)}
+            className="onduty-input"
+            type="text"
+            value={newInfo.location}
+            onChange={(e) =>
+              setNewInfo({ ...newInfo, location: e.target.value })
+            }
+            placeholder="Enter location"
           />
-        </label>
-        <br />
-        <br />
-        <label className="label--">Description</label>
-        <input
-          placeholder="Kindly fill a detailed description of the case."
-          className="description-textarea"
-          type="text"
-          value={newInfo.description}
-          onChange={(e) =>
-            setNewInfo({ ...newInfo, description: e.target.value })
-          }
-        />
-        <div>
-          <div className="location-button-div">
-            <button
-              className="location-button"
-              onClick={(e) => {
-                e.preventDefault();
-                handleShowLocation();
-              }}
-            >
-              Show Location on Map
-            </button>
-          </div>
-          <LoadScript googleMapsApiKey={mapskey}>
-            <br />
-            {showLocation && (
-              <div className="map-position">
-                <GoogleMap
-                  mapContainerStyle={containerStyle}
-                  center={{
-                    lat: parseFloat(latitude),
-                    lng: parseFloat(longitude),
-                  }}
-                  zoom={17}
-                  onLoad={(map) => {
-                    mapRef.current = map;
-                  }}
-                >
-                  <Marker
-                    position={{
+          <br />
+          <label className="label-file">
+            Share Images
+            <input
+              className="input-file"
+              type="file"
+              multiple
+              onChange={(e) => handleImages(e)}
+            />
+          </label>
+          <br />
+          <br />
+          <label className="label--">Description</label>
+          <input
+            placeholder="Kindly fill a detailed description of the case."
+            className="description-textarea"
+            type="text"
+            value={newInfo.description}
+            onChange={(e) =>
+              setNewInfo({ ...newInfo, description: e.target.value })
+            }
+          />
+          <div>
+            <div className="location-button-div">
+              <button
+                className="location-button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleShowLocation();
+                }}
+              >
+                Show Location on Map
+              </button>
+            </div>
+            <LoadScript googleMapsApiKey={mapskey}>
+              <br />
+              {showLocation && (
+                <div className="map-position">
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={{
                       lat: parseFloat(latitude),
                       lng: parseFloat(longitude),
                     }}
-                  />
-                </GoogleMap>
-              </div>
-            )}
-          </LoadScript>
-
-          {showLocation && (
-              <div className="save-map-div">
-                <div className="saving_map-btn">
-                <p className="label--">
-                  Kindly Save Your Location And attach It Below
-                <button
-                  className="save-map-button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSaveMap();
-                  }}
-                >
-                  Save
-                </button>
-                </p>
-
+                    zoom={17}
+                    onLoad={(map) => {
+                      mapRef.current = map;
+                    }}
+                  >
+                    <Marker
+                      position={{
+                        lat: parseFloat(latitude),
+                        lng: parseFloat(longitude),
+                      }}
+                    />
+                  </GoogleMap>
                 </div>
+              )}
+            </LoadScript>
+
+            {showLocation && (
+              <div className="saving_map-div">
+                <p className="savelocation_p">
+                  Kindly Save Your Location And attach It Below
+                  <button
+                    className="save-map-button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSaveMap();
+                    }}
+                  >
+                    Save
+                  </button>
+                </p>
                 <label className="label-file-map">
                   <input
                     className="input-file-map"
@@ -285,12 +283,12 @@ const LocationPosts = () => {
                   </button>
                 </div>
               </div>
-          )}
-          <div className="footer-onduty">
-            <Footer />
+            )}
+            <div className="footer-onduty"></div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 };

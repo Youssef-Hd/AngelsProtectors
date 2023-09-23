@@ -48,51 +48,51 @@ const Login = () => {
   }
 
   return (
-    <div className="papa-div-login">
-      <div>
-        <Nav />
-      </div>
-      <div className="logo-div">
-        <img className="logo-login" src={logo} alt="logo" />
-      </div>
-      <div>
-        <p className="title-login">Login To Your Account</p>
-      </div>
-      <br />
-      <br />
-      <div className="input-div-login">
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          className="input-User"
-        />
-        <br />
-        <br />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          className="input-User"
-        />
-        <div className="div-btn-login">
-          <button onClick={handleSubmit} type="submit" className="Login-btn">
-            Login
-          </button>
+    <>
+      <div className="papa-div-login">
+        <div>
+          <Nav />
         </div>
+        <div className="logo-div">
+          <img className="logo-login" src={logo} alt="logo" />
+        </div>
+        <div>
+          <p className="title-login">Login To Your Account</p>
+        </div>
+        <br />
+        <br />
+        <div className="input-div-login">
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            className="input-User"
+          />
+          <br />
+          <br />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="input-User"
+          />
+          <div className="div-btn-login">
+            <button onClick={handleSubmit} type="submit" className="Login-btn">
+              Login
+            </button>
+          </div>
+        </div>
+        <div className="div-register-btn-login">
+          <h3 className="h3-register">Not a user yet?</h3>
+          <Link to="/register">
+            <button className="register-btn-login">Register Account</button>
+          </Link>
+        </div>
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
-      <div className="div-register-btn-login">
-        <h3 className="h3-register">
-          Not a user yet? 
-        </h3>
-        <Link to='/register'>
-        <button className="register-btn-login">Register Account</button></Link>
-      </div>
-      {errorMessage && <p>{errorMessage}</p>}
-    
       <Footer />
-    </div>
+    </>
   );
 };
 

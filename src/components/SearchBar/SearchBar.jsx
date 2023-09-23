@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-
-import "./SearchBar.css"
+import "./SearchBar.css";
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
-
   const fetchData = (value) => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
@@ -38,7 +36,6 @@ export const SearchBar = ({ setResults }) => {
     </div>
   );
 };
-
 
 const Sos = [
   {

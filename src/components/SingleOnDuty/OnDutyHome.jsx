@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
 const OnDutyHome = () => {
-
   const settings = {
     dots: true,
     infinite: true,
@@ -31,13 +30,14 @@ const OnDutyHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://angelsprotectorss.onrender.com/api/location");
+        const response = await axios.get(
+          "https://angelsprotectorss.onrender.com/api/location"
+        );
         setHomeLocation(response.data.data);
         console.log(response.data.data);
       } catch (error) {
         console.error(error);
       }
-      // console.log('Data',ondutyData)
     };
     fetchData();
   }, []);
@@ -53,7 +53,7 @@ const OnDutyHome = () => {
                 src={item.images[0].url}
                 alt={item.description}
               />
-            <span className="span-location"> {item.location}</span>
+              <span className="span-location"> {item.location}</span>
             </Link>
           </div>
         ))}
@@ -63,5 +63,3 @@ const OnDutyHome = () => {
 };
 
 export default OnDutyHome;
-
-

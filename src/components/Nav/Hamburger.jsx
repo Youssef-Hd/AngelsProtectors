@@ -1,18 +1,15 @@
-import './Hamburger.css'
-
+import "./Hamburger.css";
 
 export default function Hamburger({ isOpen }) {
   return (
     <>
-      <div className='Burger-position'>
-      <div className="hamburger">
-
-        <div className="burger burger1" />
-        <div className="burger burger2" />
-        <div className="burger burger3" />
+      <div className="Burger-position">
+        <div className="hamburger">
+          <div className="burger burger1" />
+          <div className="burger burger2" />
+          <div className="burger burger3" />
+        </div>
       </div>
-      </div>
-
 
       <style jsx>{`
         .burger1 {

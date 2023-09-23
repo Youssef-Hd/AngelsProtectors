@@ -15,41 +15,40 @@ const SOS = () => {
     setClick(i);
   };
   return (
-    <div>
-      <Nav />
-          {/* <h2 className="h1-sos">List Of Ngo's</h2> */}
-      <Search />
-      <div>
-      <br />
-        <div className="accordion">
+    <>
+      <div className="baba">
+        <Nav />
+        <Search />
+        <h2 className="h1-sos">List Of Ngo's</h2>
+        <div>
           <br />
-          {Sos.map((item, i) => (
-            <div className="papadiv">
-              <div className="name-sos" onClick={() => toggle(i)}>
-                <h3 className="h3-name">{item.Name}</h3>
-                {click === i ? (
-                  <IoArrowRedoCircleOutline className="up-arrow" />
-                ) : (
-                  <IoArrowRedoCircleOutline className="down-arrow" />
-                )}
-
+          <div className="accordion">
+            <br />
+            {Sos.map((item, i) => (
+              <div className="papadiv">
+                <div className="name-sos" onClick={() => toggle(i)}>
+                  <h3 className="h3-name">{item.Name}</h3>
+                  {click === i ? (
+                    <IoArrowRedoCircleOutline className="up-arrow" />
+                  ) : (
+                    <IoArrowRedoCircleOutline className="down-arrow" />
+                  )}
+                </div>
+                <br />
+                <div className={click === i ? "adress-sos.show" : "adress-sos"}>
+                  <li className="li-styling">
+                    Location:{item.Adress}
+                    <br />
+                    PhoneNumber:{item.phoneNumber}
+                  </li>
+                </div>
               </div>
-              <br />
-              <div className={click === i ? "adress-sos.show" : "adress-sos"}>
-                <li className="li-styling">
-                  Location:{item.Adress}
-                  <br />
-                  PhoneNumber:{item.phoneNumber}
-                </li>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <br />
-      <br />
       <Footer />
-    </div>
+    </>
   );
 };
 

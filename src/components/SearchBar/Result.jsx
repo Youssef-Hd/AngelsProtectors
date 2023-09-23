@@ -4,7 +4,6 @@ import { SearchBar } from "./SearchBar.jsx";
 
 function Result() {
   const [results, setResults] = useState([]);
-
   return (
     <div className="Result">
       <div className="search-bar-container">

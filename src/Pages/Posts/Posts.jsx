@@ -11,7 +11,6 @@ import { RiArrowDropUpLine } from "react-icons/ri";
 import { BeatLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import "./Posts.css";
-import { responsive } from "@cloudinary/react";
 
 const Posts = () => {
   const [showFullDescription, setShowFullDescription] = useState({});
@@ -32,15 +31,12 @@ const Posts = () => {
       const postsData = response.data.data;
       setLoading(false); // Set loading to false after posts are fetched
 
-      console.log("responseeee", response);
-
       const postsWithComments = await Promise.all(
         postsData.map(async (post) => {
           const commentsResponse = await axios.get(
             `https://angelsprotectorss.onrender.com/api/comment/${post._id}`
           );
           const commentsData = commentsResponse.data;
-          console.log("commentsssdata", commentsData);
 
           const commentsWithReplies = await Promise.all(
             commentsData.map(async (comment) => {
@@ -48,7 +44,6 @@ const Posts = () => {
                 `https://angelsprotectorss.onrender.com/api/reply/${comment._id}/replies`
               );
               const repliesData = repliesResponse.data;
-              console.log("replies", repliesData);
 
               // NEW CODE: Mapping over repliesData
               const repliesWithMappedData = repliesData.map((reply) => {
@@ -99,10 +94,7 @@ const Posts = () => {
   const storedId = sessionStorage.getItem("id");
 
   const handleCommentSubmit = async (e, postId) => {
-    console.log(postId);
     if (storedId && commentText.comment.trim() !== "") {
-      console.log("comment", postId);
-
       try {
         await axios.post("https://angelsprotectorss.onrender.com/api/comment", {
           postId,
@@ -138,7 +130,6 @@ const Posts = () => {
             user: storedId,
           }
         );
-        console.log("Reply posted:", response.data);
         allPosts();
         setReplyText("");
         toast.success("success");
@@ -150,7 +141,6 @@ const Posts = () => {
       toast.error(
         "Make sure you are logged in and that the reply field is valid"
       );
-    // console.log("comments??", posts);
   };
   const toggleComments = (postId) => {
     setShowAllComments({
@@ -167,179 +157,180 @@ const Posts = () => {
 
   const toggleReplies = (commentId) => {
     setShowReplies({ ...showReplies, [commentId]: !showReplies[commentId] });
-    console.log("togglereplies", showReplies);
   };
   return (
-    <div className="papito-div">
-      <Nav />
-      <div className="Posts-div">
-        <h1 className="h1-angels">Angels Protector</h1>
-        {posts.map((post) => (
-          <div className="div-2" key={post._id}>
-            <div className="image-wrapper">
-              <label className="label-posts">
-                <CgProfile className="icon-profile" size={25} />
-                {post.user.name}
-              </label>
-              {loading ? (
-                <div className="loader-posts">
-                  <BeatLoader color="#dbca72" loading={true} size={15} />
+    <>
+      <div className="papito-div">
+        <Nav />
+        <div className="Posts-div">
+          <h1 className="h1-angels">Angels Protector</h1>
+          {posts.map((post) => (
+            <div className="div-2" key={post._id}>
+              <div className="image-wrapper">
+                <label className="label-posts">
+                  <CgProfile className="icon-profile" size={25} />
+                  {post.user.name}
+                </label>
+                {loading ? (
+                  <div className="loader-posts">
+                    <BeatLoader color="#dbca72" loading={true} size={15} />
+                  </div>
+                ) : (
+                  <img
+                    className="image-posts"
+                    src={post.images[0].url}
+                    alt={post.image}
+                    onLoad={() => setLoading(false)}
+                  />
+                )}
+                <div className="description-posts">
+                  {showFullDescription[post._id]
+                    ? post.description
+                    : truncateDescription(post.description, 10)}
+                  {post.description.split(" ").length > 10 && (
+                    <button
+                      className="see-more-button"
+                      onClick={() => toggleDescription(post._id)}
+                    >
+                      {showFullDescription[post._id] ? "See Less" : "See More"}
+                    </button>
+                  )}
                 </div>
-              ) : (
-                <img
-                  className="image-posts"
-                  src={post.images[0].url}
-                  alt={post.image}
-                  onLoad={() => setLoading(false)}
-                />
-              )}
-              <div className="description-posts">
-                {showFullDescription[post._id]
-                  ? post.description
-                  : truncateDescription(post.description, 10)}
-                {post.description.split(" ").length > 10 && (
-                  <button
-                    className="see-more-button"
-                    onClick={() => toggleDescription(post._id)}
+
+                <span className="date-stamp">
+                  Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
+                </span>
+
+                {post.comments.length > 0 && (
+                  <h3
+                    className="comments-word"
+                    onClick={() => toggleComments(post._id)}
                   >
-                    {showFullDescription[post._id] ? "See Less" : "See More"}
-                  </button>
+                    {showAllComments[post._id]
+                      ? "Hide Comments"
+                      : "Display Comments"}
+                    {showAllComments[post._id] ? (
+                      <BsArrowUpCircleFill
+                        className="icon-arrow-down"
+                        size={30}
+                      />
+                    ) : (
+                      <BsArrowDownCircleFill
+                        className="icon-arrow-down"
+                        size={30}
+                      />
+                    )}
+                  </h3>
                 )}
               </div>
-
-              <span className="date-stamp">
-                Posted On {format(new Date(post.timestamp), "yyyy-MM-dd")}
-              </span>
-
-              {post.comments.length > 0 && (
-                <h3
-                  className="comments-word"
-                  onClick={() => toggleComments(post._id)}
-                >
-                  {showAllComments[post._id]
-                    ? "Hide Comments"
-                    : "Display Comments"}
-                  {showAllComments[post._id] ? (
-                    <BsArrowUpCircleFill
-                      className="icon-arrow-down"
-                      size={30}
-                    />
-                  ) : (
-                    <BsArrowDownCircleFill
-                      className="icon-arrow-down"
-                      size={30}
-                    />
-                  )}
-                </h3>
-              )}
-            </div>
-            <div className="comment-content-div">
-              {post.comments.map((comment, index) => (
-                <div
-                  className={`comment-name-div-posts ${
-                    !showAllComments[post._id] && index >= 1
-                      ? "hidden-comment"
-                      : ""
-                  }`}
-                  key={comment._id}
-                >
-                  <label className="comment-user-name">
-                    <CgProfile className="icon-profile-comment" size={25} />
-                    {comment.user.name}
-                  </label>
-                  <p className="Comment-section-p">{comment.content}</p>
-                  {showReplyInput[comment._id] && (
-                    <div className="div-post-btn">
-                      <textarea //this div contains reply value and the submit button of the reply
-                        type="text"
-                        placeholder="Enter New Reply"
-                        className="Reply-input"
-                        value={replyText} //reply value
-                        onChange={(event) =>
-                          handleReplyChange(event, comment._id)
-                        }
-                      />
-                      <button
-                        className="Post-reply-button"
-                        onClick={() => handleReplySubmit(comment._id)} //reply submit action button
-                      >
-                        Post
-                      </button>
-                    </div>
-                  )}
-                  <button
-                    className={`Show-reply-button ${
-                      showReplyInput[comment._id] ? "hide-reply-button" : ""
+              <div className="comment-content-div">
+                {post.comments.map((comment, index) => (
+                  <div
+                    className={`comment-name-div-posts ${
+                      !showAllComments[post._id] && index >= 1
+                        ? "hidden-comment"
+                        : ""
                     }`}
-                    onClick={() =>
-                      //this button toggles the show, hide text area for posting the reply
-                      setShowReplyInput({
-                        ...showReplyInput,
-                        [comment._id]: !showReplyInput[comment._id],
-                      })
-                    }
+                    key={comment._id}
                   >
-                    {showReplyInput[comment._id] ? "Hide" : "Reply"}
-                  </button>
-
-                  {comment.replies.length > 0 && (
-                    <div className="Comment-reply-container">
-                      <button
-                        className="show-replies"
-                        onClick={() => toggleReplies(comment._id)}
-                      >
-                        {showReplies[comment._id] ? "Hide" : "Replies"}
-
-                        {showReplies[comment._id] ? (
-                          <RiArrowDropUpLine className="icon_replies-dropdown" />
-                        ) : (
-                          <RiArrowDropDownLine
-                            className="icon_replies-dropdown"
-                            size={20}
-                          />
-                        )}
-                      </button>
-
-                      {comment.replies.map((reply, index) => (
-                        <div
-                          className={` ${
-                            !showReplies[comment._id] ? "hidden-reply" : ""
-                          }`}
-                          key={reply._id}
+                    <label className="comment-user-name">
+                      <CgProfile className="icon-profile-comment" size={25} />
+                      {comment.user.name}
+                    </label>
+                    <p className="Comment-section-p">{comment.content}</p>
+                    {showReplyInput[comment._id] && (
+                      <div className="div-post-btn">
+                        <textarea //this div contains reply value and the submit button of the reply
+                          type="text"
+                          placeholder="Enter New Reply"
+                          className="Reply-input"
+                          value={replyText} //reply value
+                          onChange={(event) =>
+                            handleReplyChange(event, comment._id)
+                          }
+                        />
+                        <button
+                          className="Post-reply-button"
+                          onClick={() => handleReplySubmit(comment._id)} //reply submit action button
                         >
-                          <label className="user_reply">
-                           <CgProfile className="icon-profile" size={20} />
-                            {reply.user.name}
-                          </label>
-                          <p className="reply-section-p">{reply.content}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                          Post
+                        </button>
+                      </div>
+                    )}
+                    <button
+                      className={`Show-reply-button ${
+                        showReplyInput[comment._id] ? "hide-reply-button" : ""
+                      }`}
+                      onClick={() =>
+                        //this button toggles the show, hide text area for posting the reply
+                        setShowReplyInput({
+                          ...showReplyInput,
+                          [comment._id]: !showReplyInput[comment._id],
+                        })
+                      }
+                    >
+                      {showReplyInput[comment._id] ? "Hide" : "Reply"}
+                    </button>
+
+                    {comment.replies.length > 0 && (
+                      <div className="Comment-reply-container">
+                        <button
+                          className="show-replies"
+                          onClick={() => toggleReplies(comment._id)}
+                        >
+                          {showReplies[comment._id] ? "Hide" : "Replies"}
+
+                          {showReplies[comment._id] ? (
+                            <RiArrowDropUpLine className="icon_replies-dropdown" />
+                          ) : (
+                            <RiArrowDropDownLine
+                              className="icon_replies-dropdown"
+                              size={20}
+                            />
+                          )}
+                        </button>
+
+                        {comment.replies.map((reply, index) => (
+                          <div
+                            className={` ${
+                              !showReplies[comment._id] ? "hidden-reply" : ""
+                            }`}
+                            key={reply._id}
+                          >
+                            <label className="user_reply">
+                              <CgProfile className="icon-profile" size={20} />
+                              {reply.user.name}
+                            </label>
+                            <p className="reply-section-p">{reply.content}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="div-comment-posts">
+                <textarea
+                  type="text"
+                  name="comment"
+                  placeholder="Comment Here"
+                  className="Comment-input"
+                  value={commentText.comment}
+                  onChange={handleCommentChange}
+                />
+                <button
+                  className="post-comment-button"
+                  onClick={(e) => handleCommentSubmit(e, post._id)}
+                >
+                  Post
+                </button>
+              </div>
             </div>
-            <div className="div-comment-posts">
-              <textarea
-                type="text"
-                name="comment"
-                placeholder="Comment Here"
-                className="Comment-input"
-                value={commentText.comment}
-                onChange={handleCommentChange}
-              />
-              <button
-                className="post-comment-button"
-                onClick={(e) => handleCommentSubmit(e, post._id)}
-              >
-                Post
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -43,14 +43,15 @@
 .input-div-register {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: josefin sans;
   justify-content: space-between;
+  min-height: 25dvh;
+  font-family: josefin sans;
 }
 
-
-.papa-div-register{
-  /* padding: 20px; */
+.papa-div-register {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
 }
 
 .register-btn-create {
@@ -68,18 +69,11 @@
   line-height: 20px;
 }
 
-
-
 .div-btn-register {
   display: flex;
   height: 18vh;
-  flex-direction: column;
+  min-width: 21rem;
   justify-content: center;
-}
-
-
-.Footer-register-div{
-  height: 20vh;
-  display: flex;
-align-items: flex-end;
+  align-self: center;
+  align-items: center;
 }

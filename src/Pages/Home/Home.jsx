@@ -50,7 +50,6 @@ const Home = () => {
           <OnDutyHome />
         )}
       </div>
-      {/* <div className="border-mid"></div> */}
       <div className="div-p-btn">
         <p className="p-home">
           This platform was created for people to contribute helping stray dogs
@@ -93,15 +92,14 @@ const Home = () => {
           />
         </Link>
       </div>
-      {/* <div className="border-mid-last"></div> */}
-
       <br />
       <br />
       {loading ? ( // Render the BeatLoader while loading is true
         <BeatLoader className="Loader" color="#dbca72" loading={true} />
       ) : (
-        <Footer />
+        ""
       )}
+      <Footer />
     </div>
   );
 };

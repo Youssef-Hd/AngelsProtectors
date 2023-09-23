@@ -1,11 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper-bundle.min.css";
 import "swiper/css";
-import './Swiper.css'
+import "./Swiper.css";
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -23,13 +21,16 @@ const ImageSlider = () => {
         console.log(error);
       });
   }, []);
-  console.log('showimage',images)
   return (
     <div className="swiper-container">
       <Swiper slidesPerView={4} spaceBetween={10} navigation>
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <img className="Image-slider" src={image.image} alt={`Image ${index}`} />
+            <img
+              className="Image-slider"
+              src={image.image}
+              alt={`Image ${index}`}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

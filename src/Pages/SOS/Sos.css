@@ -3,20 +3,22 @@
   overflow: hidden;
 }
 
+.baba {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
 .adress-sos::show {
   height: 100vh;
   max-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: red;
-
 }
 
 .h1-sos {
   text-align: center;
   font-family: josefin sans;
-  
-
 }
 
 .li-styling {
@@ -43,7 +45,6 @@
   border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0px 0px 0px 2px #dbca72;
-  /* background-color: red; */
 }
 
 .down-arrow {
@@ -55,9 +56,6 @@
 .up-arrow {
   transform: rotate(-90deg);
   font-size: 25px;
-  /* text-align: center; */
-  /* padding-left: 10px; */
-
 }
 
 li {
