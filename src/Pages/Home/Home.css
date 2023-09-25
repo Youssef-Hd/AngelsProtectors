@@ -20,7 +20,8 @@
 
 .h2-home {
   text-align: center;
-  font-weight: normal;
+  font-weight: bold;
+
 }
 
 .opacity-home {
@@ -42,7 +43,7 @@
 }
 
 .btn-home {
-  width: 180px;
+  width: 140px;
   height: 40px;
   border: none;
   color: black;

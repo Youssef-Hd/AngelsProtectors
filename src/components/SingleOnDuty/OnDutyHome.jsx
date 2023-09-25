@@ -11,15 +11,15 @@ const OnDutyHome = () => {
     dots: true,
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     initialSlide: 0,
     centerMode: true, // Enable center modeTTT
-    centerPadding: "0px", // Adjust the padding to center the images
+    centerPadding: "48rem", // Adjust the padding to center the images
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
     ],

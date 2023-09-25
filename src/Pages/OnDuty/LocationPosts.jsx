@@ -73,7 +73,7 @@ const LocationPosts = () => {
       formData.append("photo", mapImage);
 
       const response = await axios.post(
-        "https://angelsprotectorss.onrender.com/api/mapImage", // Replace with your backend endpoint for uploading map image
+        "https://angelsprotectorss.onrender.com/api/mapImage",
         formData,
         {
           headers: {

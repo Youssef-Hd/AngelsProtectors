@@ -13,6 +13,7 @@ button {
   padding: 10px;
   font-size: 20px;
   font-weight: 100;
+  width: 20rem;
 }
 
 .div-images-styling {
@@ -28,7 +29,7 @@ button {
 }
 
 .caseroul-image-style {
-  width: 250px;
+  width: 20rem;
   height: 15vh;
   border-radius: 12px;
 }
@@ -37,6 +38,13 @@ button {
   display: flex;
   justify-content: center;
   text-align: center;
+  /* background-color: #000; */
+}
+
+.slick-dots{
+  /* background-color: lightblue; */
+  /* height: 10rem; */
+
 }
 
 @media (max-width: 767px) {
